@@ -1,0 +1,37 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:main {"tagName":"main"} -->
+<main class="wp-block-main">
+    <!-- wp:group {"tagName":"section","style":{"spacing":{"padding":{"top":"10rem","bottom":"8rem","left":"3rem","right":"3rem"}},"border":{"bottom":{"color":"var:preset|color|border","style":"solid","width":"1px"}}},"backgroundColor":"surface"} -->
+    <section class="wp-block-group has-surface-background-color has-background" style="border-bottom-color:var(--wp--preset--color--border);border-bottom-style:solid;border-bottom-width:1px;padding-top:10rem;padding-bottom:8rem;padding-left:3rem;padding-right:3rem">
+        <!-- wp:group {"layout":{"type":"constrained"}} -->
+        <div class="wp-block-group">
+            <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.65rem","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.2em"}},"textColor":"accent"} -->
+            <p class="has-accent-color has-text-color" style="font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase">Studio Portfolio</p>
+            <!-- /wp:paragraph -->
+
+            <!-- wp:heading {"level":1,"style":{"typography":{"fontSize":"clamp(4rem, 10vw, 8rem)","lineHeight":"1.05","letterSpacing":"-0.03em"},"spacing":{"margin":{"top":"2rem"}}},"textColor":"primary"} -->
+            <h1 class="has-primary-color has-text-color" style="font-size:clamp(4rem, 10vw, 8rem);letter-spacing:-0.03em;line-height:1.05;margin-top:2rem">NexaFusion builds <span class="italic font-serif">permanent</span> digital artifacts.</h1>
+            <!-- /wp:heading -->
+        </div>
+        <!-- /wp:group -->
+    </section>
+    <!-- /wp:group -->
+
+    <!-- wp:query {"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false}} -->
+    <div class="wp-block-query">
+        <!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+            <!-- wp:group {"style":{"border":{"right":{"color":"var:preset|color|border","style":"solid","width":"1px"},"bottom":{"color":"var:preset|color|border","style":"solid","width":"1px"}},"spacing":{"padding":{"top":"2.5rem","bottom":"2.5rem","left":"2.5rem","right":"2.5rem"}}},"backgroundColor":"surface"} -->
+            <div class="wp-block-group has-surface-background-color has-background" style="border-bottom-color:var(--wp--preset--color--border);border-bottom-style:solid;border-bottom-width:1px;border-right-color:var(--wp--preset--color--border);border-right-style:solid;border-right-width:1px;padding-top:2.5rem;padding-bottom:2.5rem;padding-left:2.5rem;padding-right:2.5rem">
+                <!-- wp:post-featured-image {"isLink":true,"style":{"border":{"width":"1px","style":"solid","color":"var:preset|color|border"}}} /-->
+                <!-- wp:post-title {"isLink":true,"style":{"typography":{"fontSize":"1.5rem","fontWeight":"500","letterSpacing":"-0.02em"}}} /-->
+                <!-- wp:post-excerpt {"style":{"typography":{"fontSize":"0.875rem"}},"textColor":"secondary"} /-->
+            </div>
+            <!-- /wp:group -->
+        <!-- /wp:post-template -->
+    </div>
+    <!-- /wp:query -->
+</main>
+<!-- /wp:main -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

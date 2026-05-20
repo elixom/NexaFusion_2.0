@@ -1,0 +1,15 @@
+/*
+Theme Name: NexaFusion
+Theme URI: https://nexafusion.example.com
+Author: NexaFusion Team
+Description: A high-end, atmospheric WordPress theme for digital agencies, featuring a "Caribbean Nocturne" aesthetic with deep blues and electric accents.
+Version: 1.0.0
+License: Apache-2.0
+License URI: http://www.apache.org/licenses/LICENSE-2.0
+Text Domain: nexafusion
+*/
+
+/* 
+This file is required for WordPress theme identification. 
+All styling is handled via Tailwind CSS enqueued in functions.php.
+*/

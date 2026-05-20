@@ -1,0 +1,8 @@
+{
+  "name": "NexaFusion WordPress Theme",
+  "description": "A truly dynamic WordPress Block Theme (FSE) with a clean minimalist aesthetic, featuring full site editing support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

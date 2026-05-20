@@ -1,0 +1,30 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"pt-40 max-w-7xl mx-auto px-8 mb-24 min-h-screen"} -->
+<main class="wp-block-group pt-40 max-w-7xl mx-auto px-8 mb-24 min-h-screen">
+    <!-- wp:heading {"level":1,"className":"text-4xl md:text-6xl font-headline font-bold mb-12"} -->
+    <h1 class="wp-block-heading text-4xl md:text-6xl font-headline font-bold mb-12">Latest Insights</h1>
+    <!-- /wp:heading -->
+
+    <!-- wp:query {"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->
+    <div class="wp-block-query">
+        <!-- wp:post-template {"className":"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"} -->
+            <!-- wp:group {"className":"bg-surface-container-low rounded-2xl p-8 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 border border-transparent hover:border-outline-variant"} -->
+            <div class="wp-block-group bg-surface-container-low rounded-2xl p-8 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 border border-transparent hover:border-outline-variant">
+                <!-- wp:post-title {"isLink":true,"className":"text-2xl font-bold font-headline mb-4"} /-->
+                <!-- wp:post-excerpt {"moreText":"Read More","className":"text-on-surface-variant text-sm mb-6"} /-->
+                <!-- wp:post-date {"className":"text-[10px] text-outline font-bold uppercase tracking-widest"} /-->
+            </div>
+            <!-- /wp:group -->
+        <!-- /wp:post-template -->
+        
+        <!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"},"className":"mt-12 text-primary font-bold"} -->
+        <!-- wp:query-pagination-previous /-->
+        <!-- wp:query-pagination-next /-->
+        <!-- /wp:query-pagination -->
+    </div>
+    <!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
