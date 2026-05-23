@@ -59,6 +59,58 @@ if ( ! function_exists( 'nexafusion_enqueue_assets' ) ) :
 endif;
 add_action( 'wp_enqueue_scripts', 'nexafusion_enqueue_assets' );
 
+if ( ! function_exists( 'nexafusion_filter_query_loop_by_category_slug' ) ) :
+	/**
+	 * Allows Query Loop blocks to use readable category slugs.
+	 *
+	 * This theme stores category filters in templates as slugs so they remain
+	 * portable across WordPress installs.
+	 *
+	 * @param array    $query WP_Query arguments.
+	 * @param WP_Block $block Query block instance.
+	 * @return array
+	 */
+	function nexafusion_filter_query_loop_by_category_slug( $query, $block ) {
+		if ( empty( $block->context['query']['categorySlugs'] ) || ! is_array( $block->context['query']['categorySlugs'] ) ) {
+			return $query;
+		}
+
+		$category_slugs = array_filter(
+			$block->context['query']['categorySlugs'],
+			static function ( $category ) {
+				return is_string( $category ) && '' !== trim( $category );
+			}
+		);
+
+		if ( empty( $category_slugs ) ) {
+			return $query;
+		}
+
+		$category_ids = array();
+
+		foreach ( $category_slugs as $category_slug ) {
+			$term = get_category_by_slug( sanitize_title( $category_slug ) );
+
+			if ( $term instanceof WP_Term ) {
+				$category_ids[] = (int) $term->term_id;
+			}
+		}
+
+		if ( empty( $category_ids ) ) {
+			return $query;
+		}
+
+		$query['tax_query'][] = array(
+			'taxonomy'         => 'category',
+			'terms'            => array_unique( $category_ids ),
+			'include_children' => false,
+		);
+
+		return $query;
+	}
+endif;
+add_filter( 'query_loop_block_query_vars', 'nexafusion_filter_query_loop_by_category_slug', 10, 2 );
+
 if ( ! function_exists( 'nexafusion_body_classes' ) ) :
 	/**
 	 * Adds theme-specific body classes.
