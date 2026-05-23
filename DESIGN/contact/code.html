@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact NexaFusion | Atmospheric Innovation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#3b476b",
+                    "inverse-on-surface": "#4f5469",
+                    "error": "#fd6f85",
+                    "on-tertiary-fixed": "#33005c",
+                    "on-tertiary-container": "#52008e",
+                    "surface-tint": "#7d98ff",
+                    "surface-container-low": "#0b1228",
+                    "on-error-container": "#ff97a3",
+                    "on-error": "#490013",
+                    "secondary-fixed-dim": "#c7d5f3",
+                    "tertiary-fixed-dim": "#ca93ff",
+                    "surface-container": "#0f1832",
+                    "primary-container": "#275dfb",
+                    "surface-variant": "#182446",
+                    "primary-fixed-dim": "#9cafff",
+                    "surface-container-high": "#131e3c",
+                    "primary": "#7d98ff",
+                    "error-dim": "#c8475d",
+                    "surface-container-lowest": "#000000",
+                    "primary-fixed": "#afbeff",
+                    "surface-dim": "#070d1f",
+                    "on-secondary-fixed": "#324058",
+                    "primary-dim": "#3666ff",
+                    "surface-container-highest": "#182446",
+                    "tertiary-dim": "#9c48ea",
+                    "on-primary-fixed-variant": "#0037b2",
+                    "on-secondary-fixed-variant": "#4e5c75",
+                    "on-secondary-container": "#96a4c0",
+                    "on-secondary": "#334158",
+                    "on-primary-container": "#ffffff",
+                    "outline": "#68749b",
+                    "surface-bright": "#1c2a51",
+                    "on-tertiary": "#5f00a4",
+                    "tertiary-container": "#d4a6ff",
+                    "secondary": "#b9c7e4",
+                    "inverse-primary": "#044dec",
+                    "tertiary": "#ddb7ff",
+                    "secondary-fixed": "#d6e3ff",
+                    "on-primary": "#00185c",
+                    "surface": "#070d1f",
+                    "on-tertiary-fixed-variant": "#5e00a2",
+                    "error-container": "#8a1632",
+                    "on-primary-fixed": "#001f6e",
+                    "tertiary-fixed": "#d4a6ff",
+                    "on-surface-variant": "#9eaad3",
+                    "on-surface": "#dfe4ff",
+                    "secondary-dim": "#abb9d6",
+                    "secondary-container": "#18263d",
+                    "on-background": "#dfe4ff",
+                    "background": "#070d1f",
+                    "inverse-surface": "#faf8ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(24, 36, 70, 0.6);
+            backdrop-filter: blur(24px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #7d98ff 0%, #275dfb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 dark:bg-[#182446]/60 backdrop-blur-[24px] shadow-2xl shadow-black/40">
+<div class="flex justify-between items-center px-8 py-5 w-full max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-white font-headline">NexaFusion</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-['Manrope'] font-bold tracking-[-0.02em] dark:text-[#9eaad3] hover:text-[#7d98ff] transition-all duration-300" href="#">Services</a>
+<a class="font-['Manrope'] font-bold tracking-[-0.02em] dark:text-[#9eaad3] hover:text-[#7d98ff] transition-all duration-300" href="#">Portfolio</a>
+<a class="font-['Manrope'] font-bold tracking-[-0.02em] dark:text-[#9eaad3] hover:text-[#7d98ff] transition-all duration-300" href="#">Innovation</a>
+<a class="font-['Manrope'] font-bold tracking-[-0.02em] dark:text-[#9eaad3] hover:text-[#7d98ff] transition-all duration-300" href="#">About</a>
+<a class="font-['Manrope'] font-bold tracking-[-0.02em] dark:text-[#7d98ff] border-b-2 border-[#7d98ff] pb-1 transition-all duration-300" href="#">Contact</a>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-lg font-bold scale-95 active:scale-100 transition-transform">
+                Start a Project
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 mb-24">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<span class="inline-block py-1 px-3 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest mb-6">CONNECT WITH US</span>
+<h1 class="text-6xl md:text-7xl font-headline font-extrabold tracking-[-0.04em] leading-tight mb-8">
+                        Let's define the <span class="text-gradient">Nocturne.</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-lg leading-relaxed">
+                        Ready to elevate your digital presence? We combine Caribbean soul with high-tech precision to build the future of innovation.
+                    </p>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-50 group-hover:opacity-70 transition-opacity"></div>
+<img class="relative rounded-xl aspect-[4/3] object-cover shadow-2xl brightness-90 grayscale-[0.2] hover:grayscale-0 transition-all duration-500" data-alt="Modern high-tech office space at night with blue ambient lighting and glass panels reflecting digital data" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXn0eqJ8aK1iAy4nthK11jV11hlj6ANUfozq_W8GnmytvAHeuDpq8iOlgtxrt8Y2YIJR7iveukAbWUTOLla4cl9evyPLZ2Y74jsMopfxgHRYK-10t5KdQ6xasMsN5WbKPse3fafwiUw4c-hV1hqnQth0JwBchsHg6U13CH-btzaGZsP3TQv2u5rnn6yM3Vw8gHOSpiDbQleZSR7HqlcPLdlrtS2EPUuR7uie5U4Pyr4a6k34ln6eXlkm-qAeqBU1Ki1oPNHz007w"/>
+</div>
+</div>
+</section>
+<!-- Main Content Bento Grid -->
+<section class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Contact Form Card -->
+<div class="lg:col-span-2 bg-surface-container-high rounded-xl p-10 shadow-xl border border-outline-variant/10">
+<h2 class="text-3xl font-headline font-bold mb-8">Send an Inquiry</h2>
+<form class="space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-semibold tracking-wide text-on-surface-variant block">FULL NAME</label>
+<input class="w-full bg-surface-container border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/30 focus:bg-surface-bright transition-all placeholder:text-outline/50" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold tracking-wide text-on-surface-variant block">EMAIL ADDRESS</label>
+<input class="w-full bg-surface-container border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/30 focus:bg-surface-bright transition-all placeholder:text-outline/50" placeholder="john@company.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold tracking-wide text-on-surface-variant block">SERVICE INTEREST</label>
+<select class="w-full bg-surface-container border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/30 focus:bg-surface-bright transition-all">
+<option>Digital Strategy</option>
+<option>UI/UX Design</option>
+<option>Web Development</option>
+<option>Brand Identity</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold tracking-wide text-on-surface-variant block">MESSAGE</label>
+<textarea class="w-full bg-surface-container border-none rounded-lg p-4 text-on-surface focus:ring-2 focus:ring-primary/30 focus:bg-surface-bright transition-all placeholder:text-outline/50" placeholder="Tell us about your vision..." rows="5"></textarea>
+</div>
+<button class="w-full md:w-auto px-10 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-lg shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                        Dispatch Inquiry
+                    </button>
+</form>
+</div>
+<!-- Sidebar Info -->
+<div class="space-y-8">
+<!-- Location Card -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-lg">
+<div class="h-48 bg-surface-variant relative">
+<div class="absolute inset-0 bg-primary/10"></div>
+<div class="w-full h-full" data-location="Kingston, Jamaica" style="">
+<img class="w-full h-full object-cover mix-blend-overlay" data-alt="A stylized overhead map view of Kingston Jamaica coastline at night with illuminated city lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGX7vuad_m-bMlXDNS5hsXnrEbSvitspZ3uTAF5ODaUSDEYE8PcY5wljMRHfQGAB9p1C0bsu6a3-95MtdAAPu9UGzmm1N-HIubevVvZdUzEFuez4bT1ClF12cp3S9AGl9Nv6j_mexEqF28BTJ_Kb2KqceGnzEAqzhcJM8Fc9_ORiiWZlWWcrsefGOwaZtVTwA_tAim9ssFCNzf9qNvkNyjl1aRtLKouF3MVZlLcEZgKReskY-H4lX_APRpugKMjD-qoZfYwe11RA"/>
+</div>
+<div class="absolute bottom-4 left-4 bg-surface-container-highest/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-tighter">KINGSTON, JM</div>
+</div>
+<div class="p-8">
+<h3 class="text-xl font-headline font-bold mb-4">The Hub</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                            12 Innovation Way, New Kingston,<br/>
+                            Kingston 5, Jamaica
+                        </p>
+<a class="text-tertiary font-bold text-sm flex items-center gap-2 group" href="#">
+                            View on Map
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Connect Card -->
+<div class="bg-surface-container-high rounded-xl p-8 border border-outline-variant/5">
+<h3 class="text-xl font-headline font-bold mb-6">Connect</h3>
+<div class="grid grid-cols-2 gap-4">
+<a class="flex items-center gap-3 p-3 rounded-lg bg-surface hover:bg-surface-bright transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary">public</span>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">Twitter</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg bg-surface hover:bg-surface-bright transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary">work</span>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">LinkedIn</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg bg-surface hover:bg-surface-bright transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary">camera</span>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">Instagram</span>
+</a>
+<a class="flex items-center gap-3 p-3 rounded-lg bg-surface hover:bg-surface-bright transition-colors group" href="#">
+<span class="material-symbols-outlined text-primary">palette</span>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">Behance</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-7xl mx-auto px-8 mt-24">
+<div class="relative rounded-2xl p-12 overflow-hidden bg-surface-container-highest">
+<div class="absolute top-0 right-0 -mt-24 -mr-24 w-96 h-96 bg-primary/10 blur-[100px] rounded-full"></div>
+<div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-4xl font-headline font-bold mb-4">Start with a Strategy</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                            Not ready for a full project? Book a complimentary 30-minute creative consultation to explore how we can solve your digital challenges.
+                        </p>
+</div>
+<div class="flex lg:justify-end">
+<button class="group flex items-center gap-4 px-8 py-5 rounded-full border border-outline-variant/20 hover:border-primary/50 transition-all bg-surface shadow-2xl">
+<span class="text-lg font-bold">Schedule Consultation</span>
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-primary">calendar_today</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#070d1f] border-t border-outline-variant/10">
+<div class="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 items-start">
+<div>
+<div class="text-xl font-black text-white mb-4 font-headline">NexaFusion</div>
+<p class="font-['Inter'] text-sm tracking-wide dark:text-[#9eaad3] max-w-xs">
+                    Crafting atmospheric digital experiences from the heart of the Caribbean. Innovation redefined.
+                </p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Connect</h4>
+<div class="flex flex-col space-y-3">
+<a class="font-['Inter'] text-sm tracking-wide dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Twitter</a>
+<a class="font-['Inter'] text-sm tracking-wide dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="font-['Inter'] text-sm tracking-wide dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Instagram</a>
+<a class="font-['Inter'] text-sm tracking-wide dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Behance</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Legal</h4>
+<div class="flex flex-col space-y-3">
+<a class="font-['Inter'] text-sm tracking-wide dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-sm tracking-wide dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Newsletter</h4>
+<div class="relative">
+<input class="w-full bg-surface-container border-none rounded-lg p-3 text-sm focus:ring-1 focus:ring-primary" placeholder="Email address" type="email"/>
+<button class="absolute right-2 top-2 p-1.5 bg-primary rounded-md text-on-primary">
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 pb-12 border-t border-outline-variant/5 pt-8 text-center md:text-left">
+<span class="font-['Inter'] text-sm tracking-wide dark:text-[#9eaad3]">© 2024 NexaFusion. Atmospheric Innovation.</span>
+</div>
+</footer>
+</body></html>

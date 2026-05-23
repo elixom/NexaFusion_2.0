@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About | NexaFusion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#3b476b",
+                        "inverse-on-surface": "#4f5469",
+                        "error": "#fd6f85",
+                        "on-tertiary-fixed": "#33005c",
+                        "on-tertiary-container": "#52008e",
+                        "surface-tint": "#7d98ff",
+                        "surface-container-low": "#0b1228",
+                        "on-error-container": "#ff97a3",
+                        "on-error": "#490013",
+                        "secondary-fixed-dim": "#c7d5f3",
+                        "tertiary-fixed-dim": "#ca93ff",
+                        "surface-container": "#0f1832",
+                        "primary-container": "#275dfb",
+                        "surface-variant": "#182446",
+                        "primary-fixed-dim": "#9cafff",
+                        "surface-container-high": "#131e3c",
+                        "primary": "#7d98ff",
+                        "error-dim": "#c8475d",
+                        "surface-container-lowest": "#000000",
+                        "primary-fixed": "#afbeff",
+                        "surface-dim": "#070d1f",
+                        "on-secondary-fixed": "#324058",
+                        "primary-dim": "#3666ff",
+                        "surface-container-highest": "#182446",
+                        "tertiary-dim": "#9c48ea",
+                        "on-primary-fixed-variant": "#0037b2",
+                        "on-secondary-fixed-variant": "#4e5c75",
+                        "on-secondary-container": "#96a4c0",
+                        "on-secondary": "#334158",
+                        "on-primary-container": "#ffffff",
+                        "outline": "#68749b",
+                        "surface-bright": "#1c2a51",
+                        "on-tertiary": "#5f00a4",
+                        "tertiary-container": "#d4a6ff",
+                        "secondary": "#b9c7e4",
+                        "inverse-primary": "#044dec",
+                        "tertiary": "#ddb7ff",
+                        "secondary-fixed": "#d6e3ff",
+                        "on-primary": "#00185c",
+                        "surface": "#070d1f",
+                        "on-tertiary-fixed-variant": "#5e00a2",
+                        "error-container": "#8a1632",
+                        "on-primary-fixed": "#001f6e",
+                        "tertiary-fixed": "#d4a6ff",
+                        "on-surface-variant": "#9eaad3",
+                        "on-surface": "#dfe4ff",
+                        "secondary-dim": "#abb9d6",
+                        "secondary-container": "#18263d",
+                        "on-background": "#dfe4ff",
+                        "background": "#070d1f",
+                        "inverse-surface": "#faf8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-glass {
+            background: rgba(24, 36, 70, 0.6);
+            backdrop-filter: blur(24px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 dark:bg-[#182446]/60 backdrop-blur-[24px] shadow-2xl shadow-black/40">
+<div class="flex justify-between items-center px-8 py-5 w-full max-w-7xl mx-auto font-['Manrope'] font-bold tracking-[-0.02em]">
+<div class="text-2xl font-black tracking-tighter text-white">NexaFusion</div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="dark:text-[#9eaad3] hover:text-[#7d98ff] transition-all duration-300" href="#">Services</a>
+<a class="dark:text-[#9eaad3] hover:text-[#7d98ff] transition-all duration-300" href="#">Portfolio</a>
+<a class="dark:text-[#9eaad3] hover:text-[#7d98ff] transition-all duration-300" href="#">Innovation</a>
+<a class="dark:text-[#7d98ff] border-b-2 border-[#7d98ff] pb-1" href="#">About</a>
+<a class="dark:text-[#9eaad3] hover:text-[#7d98ff] transition-all duration-300" href="#">Contact</a>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-lg scale-95 active:scale-100 transition-transform font-bold">
+                Start a Project
+            </button>
+</div>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 mb-32">
+<div class="flex flex-col lg:flex-row gap-16 items-end">
+<div class="w-full lg:w-2/3">
+<span class="text-tertiary font-label tracking-[0.15em] uppercase text-sm mb-6 block">Atmospheric Innovation</span>
+<h1 class="text-6xl md:text-8xl font-headline font-extrabold tracking-[-0.04em] text-on-primary-container leading-[0.9] mb-12">
+                        Architecting the <br/>
+<span class="text-primary italic">Nocturne</span> of Tech.
+                    </h1>
+</div>
+<div class="w-full lg:w-1/3 pb-4">
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-md">
+                        NexaFusion is a prestigious digital curator. We blend the rhythmic density of a Caribbean night with the kinetic energy of high-tech hubs.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Image Spotlight (Glassmorphic Layering) -->
+<section class="relative w-full h-[600px] overflow-hidden mb-32">
+<div class="absolute inset-0 bg-surface">
+<img alt="Abstract digital network visualization with flowing blue lines and neon particles in deep space" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" data-alt="Abstract digital network visualization with flowing blue lines and neon particles in deep space representing global connectivity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRI-zw7lp6bYQvHyW4l8T7SW0Ensm1u1mL3cku2uhjBZY2WsgKO2fcq1Ge0WBc0qtYARvovkUDdqyV_4STkvBFMKv-8irS4lDmK9L-OIzQEKycq3_P3tQEDE5BQc4tKQh_8_oiPnlQXw0RuqDw-qAFKLJYI--UJltGDd0F1TgxAD8JqTEbetqU3VpsiQJIU7i4NEINLnIz3v-pDNaQcnv0Ou12OSS4hCwoICHCyZKMb8anwoD246KcG-EVDq-1HylRSI-3yi0HfA"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<div class="relative max-w-7xl mx-auto px-8 h-full flex items-center justify-end">
+<div class="bg-glass p-12 rounded-xl max-w-md shadow-2xl">
+<h3 class="text-3xl font-headline font-bold text-white mb-6">Our Genesis</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">
+                        Founded at the intersection of raw nature and synthetic intelligence, NexaFusion was born from a desire to move beyond the "template" era of the web.
+                    </p>
+<div class="flex items-center gap-4 text-primary font-bold">
+<span class="material-symbols-outlined">waves</span>
+<span>Rhythmic Design Principles</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Approach / Bento Grid -->
+<section class="max-w-7xl mx-auto px-8 mb-32">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<div class="md:col-span-8 bg-surface-container-low p-12 rounded-xl">
+<h2 class="text-4xl font-headline font-bold mb-8">The Unique Approach</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+<div>
+<span class="text-primary-dim block mb-4 font-black text-2xl">01</span>
+<h4 class="text-xl font-bold mb-3 text-on-surface">Deep Strategy</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                We don't just build products; we engineer market dominance through data-driven intuition and deep ecosystem analysis.
+                            </p>
+</div>
+<div>
+<span class="text-primary-dim block mb-4 font-black text-2xl">02</span>
+<h4 class="text-xl font-bold mb-3 text-on-surface">Kinetic Design</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Visual systems that move. We prioritize fluid motion and asymmetric balance to create interfaces that feel alive.
+                            </p>
+</div>
+<div>
+<span class="text-primary-dim block mb-4 font-black text-2xl">03</span>
+<h4 class="text-xl font-bold mb-3 text-on-surface">Cultural Insight</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Understanding the human pulse. Our work resonates because it honors the nuances of global cultural shifts.
+                            </p>
+</div>
+<div>
+<span class="text-primary-dim block mb-4 font-black text-2xl">04</span>
+<h4 class="text-xl font-bold mb-3 text-on-surface">High-Tech Craft</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Executing at the frontier of technology, from headless architectures to neural network integrations.
+                            </p>
+</div>
+</div>
+</div>
+<div class="md:col-span-4 bg-primary-container p-12 rounded-xl flex flex-col justify-between text-on-primary-container">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<div>
+<h3 class="text-3xl font-headline font-bold mb-4">Curated Excellence</h3>
+<p class="opacity-90 leading-relaxed">
+                            Every pixel is an intentional choice. We treat digital space like a physical gallery, where every interaction is a moment of wonder.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Leadership -->
+<section class="bg-surface-container-low py-32">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-8">
+<h2 class="text-5xl font-headline font-extrabold tracking-tighter">The Curators</h2>
+<p class="text-on-surface-variant max-w-sm">A multidisciplinary team of designers, strategists, and engineers led by visionaries in the field.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Leader 1 -->
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden rounded-xl mb-6 bg-surface-container-high">
+<img alt="Professional headshot of a man with minimalist glasses and a sharp suit against a dark background" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Professional headshot of a creative director with sharp minimalist glasses and a navy suit against a dark studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYNpcf3YjR5ijnRV8o3aIsZc6MPnReNnx4rrbSOtG3XJQNINZ2QAXSARR19wV4Jcvk0Q0Z17E1EqZIAyvqVfiBFa9Y6Iht2DaG8RB8VfomnVRV8Qbwx06p9WS4SC9W4KphvALAQkRSwTMNFQjntCvNg_MqcJeSQDIG9O5S2fEBEEkHoT_1whUDY8-ulWzfDc-vy8veLRdQUFBfvTCHCjlsORHnJWMNEk7k2_SVVddTyrFYazKkdfoMoOk-5XYUVnZY-158JspB2A"/>
+</div>
+<h4 class="text-2xl font-headline font-bold">Xavier Vance</h4>
+<p class="text-primary-dim font-medium mb-2">Chief Visionary Officer</p>
+<p class="text-on-surface-variant text-sm">Pioneering the intersection of Caribbean aesthetics and technical precision for over a decade.</p>
+</div>
+<!-- Leader 2 -->
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden rounded-xl mb-6 bg-surface-container-high">
+<img alt="Professional headshot of a woman with a confident expression and sleek hairstyle" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Professional headshot of a tech leader with a confident expression and sleek hairstyle in a high-tech office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeeacXv_dV8zWdBjkmFRjNe99w9WO0FVe_-uv0-usXfRSUtcezpBh3luwFgkeDpvVaahJvMex6ADvnMqRGoGNzy8047UTs6OaicKKR4XCDXlLlm08_YcuiXT9qyGS1DJ25ebpvUscKX-Cm29OO12Guw5FSmnKjrZbORUY80dRTNrHKXXYSxpeDkwlXnYm0MlToj6JAGwfPA5rsHB1NB6O_wD973eJcu5DFUwR_xKha8BlIQZGq-Hg_fO9gn91rxRSxI-aaQ3JSgA"/>
+</div>
+<h4 class="text-2xl font-headline font-bold">Elena Ross</h4>
+<p class="text-primary-dim font-medium mb-2">Director of Strategy</p>
+<p class="text-on-surface-variant text-sm">Deciphering market movements to build brands that don't just exist—they command.</p>
+</div>
+<!-- Leader 3 -->
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden rounded-xl mb-6 bg-surface-container-high">
+<img alt="Professional headshot of a man looking thoughtfully into the distance" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Professional headshot of a technical lead looking thoughtfully into the distance with a warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBomoTcec5Ts-hA_R1P8DDo5bLTgbzkouN19OUdaDBonlhtyPsQ1QjvWmBmQK59N9aPFD9P2J4qF1Aa4SyxieeRSVXJeQSjdnVftwcEqsdQfPQysnwockC_CrpEH7bIXX0nGZ7C2ere1X1-THBRXWLNIbHF3qMeywtW9YJbH2c_FawXuAjrT7jn6VxhJGOQJ1JHs3_g7llDMH33ZbohaiAU2m6OUhjcqI8KY05ByVnVfX0xTB9mwmoozeOpe98IlDrJ-3wW2gXuFQ"/>
+</div>
+<h4 class="text-2xl font-headline font-bold">Marcus Thorne</h4>
+<p class="text-primary-dim font-medium mb-2">Chief of Engineering</p>
+<p class="text-on-surface-variant text-sm">Architecting the invisible systems that power the world's most innovative digital experiences.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Vision 2026 -->
+<section class="max-w-7xl mx-auto px-8 py-32 text-center">
+<div class="inline-block px-4 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold uppercase tracking-widest mb-8">
+                Roadmap
+            </div>
+<h2 class="text-5xl md:text-7xl font-headline font-black mb-12">The 2026 Nexus</h2>
+<p class="text-xl text-on-surface-variant max-w-3xl mx-auto leading-relaxed mb-16">
+                In 2026, NexaFusion will launch <span class="text-white font-bold">Atmosphere OS</span>—a proprietary spatial computing framework designed to bridge the gap between digital services and physical environments.
+            </p>
+<div class="flex flex-wrap justify-center gap-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">hub</span>
+<span class="font-bold">Neural Integration</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">language</span>
+<span class="font-bold">Borderless Commerce</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">visibility</span>
+<span class="font-bold">Spatial Presence</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="dark:bg-[#070d1f] bg-[#0b1228] mt-24">
+<div class="max-w-7xl mx-auto px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 items-start font-['Inter'] text-sm tracking-wide">
+<div class="col-span-1 lg:col-span-1">
+<div class="text-xl font-black text-white mb-4">NexaFusion</div>
+<p class="dark:text-[#9eaad3] mb-6">Atmospheric Innovation for the global digital landscape.</p>
+<p class="dark:text-[#9eaad3]">© 2024 NexaFusion. Atmospheric Innovation.</p>
+</div>
+<div>
+<h4 class="text-white font-semibold mb-6">Social</h4>
+<div class="flex flex-col space-y-4">
+<a class="dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Twitter</a>
+<a class="dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Instagram</a>
+<a class="dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Behance</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-semibold mb-6">Company</h4>
+<div class="flex flex-col space-y-4">
+<a class="dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">About</a>
+<a class="dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Innovation</a>
+<a class="dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Portfolio</a>
+<a class="dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Contact</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-semibold mb-6">Legal</h4>
+<div class="flex flex-col space-y-4">
+<a class="dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="dark:text-[#9eaad3] hover:text-[#ddb7ff] transition-colors opacity-80 hover:opacity-100" href="#">Terms</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
