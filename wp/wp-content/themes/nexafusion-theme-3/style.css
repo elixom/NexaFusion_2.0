@@ -3,76 +3,305 @@ Theme Name: nexafusion-theme-3
 Theme URI: https://nexafusion.com
 Author: NexaFusion
 Author URI: https://nexafusion.com
-Description: A premium WordPress block theme featuring the "Caribbean Nocturne" design system - blending atmospheric innovation with high-tech precision. Built for digital agencies showcasing editorial layouts, glassmorphism effects, and Material Design 3 aesthetics.
+Description: A premium WordPress block theme featuring the Caribbean Nocturne design system - blending atmospheric innovation with high-tech precision. Built for digital agencies showcasing editorial layouts, glassmorphism effects, and Material Design 3 aesthetics.
 Requires at least: 6.2
 Tested up to: 6.5
 Requires PHP: 7.4
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: wp-theme-nexafusion-digital-agency
+Text Domain: nexafusion
 Tags: block-theme, full-site-editing, custom-colors, custom-logo, featured-images, threaded-comments, translation-ready, dark, portfolio, agency
 */
 
-/* Material Symbols Icon Configuration */
-.material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+:root {
+    --surface: #070d1f;
+    --surface-container-lowest: #000000;
+    --surface-container-low: #0b1228;
+    --surface-container: #0f1832;
+    --surface-container-high: #131e3c;
+    --surface-container-highest: #182446;
+    --surface-bright: #1c2a51;
+    --surface-variant: #182446;
+    --primary: #7d98ff;
+    --primary-container: #275dfb;
+    --on-primary: #00185c;
+    --on-primary-container: #ffffff;
+    --secondary-container: #18263d;
+    --on-secondary-container: #96a4c0;
+    --tertiary: #ddb7ff;
+    --on-surface: #ffffff;
+    --on-surface-variant: #9eaad3;
+    --outline-variant: #3b476b;
+    --gradient-primary: linear-gradient(135deg, #7d98ff, #275dfb);
+    --glass-bg: rgba(24, 36, 70, 0.60);
+    --glass-blur: 24px;
+    --shadow-ambient: 0 8px 48px 0 rgba(158, 170, 211, 0.06);
+    --ghost-border: 1px solid rgba(59, 71, 107, 0.15);
+    --radius-default: 0.25rem;
+    --radius-xl: 0.75rem;
+    --radius-full: 9999px;
+    --font-display: 'Manrope', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --display-lg: 3.5rem;
+    --display-md: 2.5rem;
+    --label-md: 0.875rem;
+    --tracking-tight: -0.02em;
+    --tracking-expanded: +0.10em;
 }
 
-/* Glassmorphism Navigation */
-.glass-nav {
-    background: rgba(24, 36, 70, 0.6);
-    backdrop-filter: blur(24px);
+* {
+    box-sizing: border-box;
 }
 
-/* Glass Panel Utility */
-.glass-panel {
-    background: rgba(24, 36, 70, 0.6);
-    backdrop-filter: blur(24px);
+body {
+    background-color: var(--surface);
+    color: var(--on-surface-variant);
+    font-family: var(--font-body);
 }
 
-/* Gradient Utilities */
-.signature-gradient {
-    background: linear-gradient(135deg, #7d98ff 0%, #275dfb 100%);
-}
-
-.hero-gradient {
-    background: linear-gradient(135deg, #7d98ff 0%, #275dfb 100%);
-}
-
-.text-gradient {
-    background: linear-gradient(135deg, #7d98ff 0%, #275dfb 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* WordPress Block Adjustments */
-.wp-block-navigation .wp-block-navigation-item a {
-    text-decoration: none;
-    transition: all 300ms;
-}
-
-.wp-block-navigation .wp-block-navigation-item a:hover {
-    transform: scale(1.05);
-}
-
-/* Post Title Styling */
-.wp-block-post-title a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.wp-block-post-title a:hover {
-    color: #7d98ff;
-}
-
-/* Selection Styling */
 ::selection {
     background-color: rgba(125, 152, 255, 0.3);
 }
 
-/* No-Scrollbar Utility */
+a {
+    color: inherit;
+}
+
+.wp-block-site-title,
+.wp-block-heading {
+    color: var(--on-primary-container);
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-tight);
+}
+
+.wp-block-post-title a,
+.wp-block-navigation .wp-block-navigation-item a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wp-block-post-title a:hover,
+.wp-block-navigation .wp-block-navigation-item a:hover {
+    color: var(--tertiary);
+}
+
+.wp-block-button__link {
+    border-radius: var(--radius-default);
+    font-weight: 800;
+}
+
+.wp-block-button:not(.is-style-outline) .wp-block-button__link,
+.wp-block-button[class*="bg-gradient"] .wp-block-button__link {
+    background: var(--gradient-primary);
+    color: var(--on-primary);
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link,
+.wp-block-button[class*="border"] .wp-block-button__link {
+    background: transparent;
+    border: var(--ghost-border);
+    color: var(--primary);
+}
+
+.material-symbols-outlined {
+    font-family: inherit;
+    font-size: 1em;
+    line-height: 1;
+}
+
+.nf-hero {
+    min-height: 64rem;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(125, 152, 255, 0.22), transparent 28rem),
+        radial-gradient(circle at 85% 15%, rgba(221, 183, 255, 0.16), transparent 24rem),
+        linear-gradient(rgba(7, 13, 31, 0.65), rgba(7, 13, 31, 0.72)),
+        linear-gradient(135deg, var(--surface-container-low), var(--surface));
+}
+
+.nf-pulse-dot {
+    animation: nf-pulse 1.8s ease-in-out infinite;
+    background: var(--primary);
+    border-radius: var(--radius-full);
+    display: inline-block;
+    height: 0.5rem;
+    width: 0.5rem;
+}
+
+.nf-icon-chip {
+    align-items: center;
+    background-color: rgba(125, 152, 255, 0.1);
+    border-radius: var(--radius-default);
+    color: var(--primary);
+    display: flex;
+    font-weight: 800;
+    height: 4rem;
+    justify-content: center;
+    width: 4rem;
+}
+
+.nf-icon-chip-tertiary {
+    background-color: rgba(221, 183, 255, 0.1);
+    color: var(--tertiary);
+}
+
+.nf-feature-panel,
+.nf-project-panel {
+    background:
+        radial-gradient(circle at 20% 25%, rgba(125, 152, 255, 0.24), transparent 18rem),
+        radial-gradient(circle at 85% 80%, rgba(221, 183, 255, 0.18), transparent 16rem),
+        linear-gradient(135deg, var(--surface-container-highest), var(--surface-container));
+}
+
+.nf-project-panel-one {
+    background:
+        radial-gradient(circle at 25% 20%, rgba(125, 152, 255, 0.28), transparent 18rem),
+        linear-gradient(135deg, var(--surface-container-highest), var(--surface-container-low));
+}
+
+.nf-project-panel-two {
+    background:
+        radial-gradient(circle at 72% 30%, rgba(221, 183, 255, 0.24), transparent 18rem),
+        linear-gradient(135deg, var(--surface-container), var(--surface-container-highest));
+}
+
+@keyframes nf-pulse {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.55;
+        transform: scale(1.45);
+    }
+}
+
+.glass-nav,
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--shadow-ambient);
+}
+
+.signature-gradient,
+.hero-gradient {
+    background: var(--gradient-primary);
+}
+
+.text-gradient,
+.wp-block-heading .text-transparent {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-surface {
+    background-color: var(--surface);
+}
+
+.bg-surface-container-low {
+    background-color: var(--surface-container-low);
+}
+
+.bg-surface-container,
+.bg-secondary-container\/50 {
+    background-color: var(--secondary-container);
+}
+
+.bg-surface-container-high {
+    background-color: var(--surface-container-high);
+}
+
+.bg-surface-container-highest {
+    background-color: var(--surface-container-highest);
+}
+
+.bg-surface-bright,
+.hover\:bg-surface-bright:hover,
+.hover\:bg-surface-bright\/50:hover {
+    background-color: var(--surface-bright);
+}
+
+.bg-primary\/10 {
+    background-color: rgba(125, 152, 255, 0.1);
+}
+
+.bg-tertiary\/10 {
+    background-color: rgba(221, 183, 255, 0.1);
+}
+
+.bg-primary\/20 {
+    background-color: rgba(125, 152, 255, 0.2);
+}
+
+.bg-tertiary\/20 {
+    background-color: rgba(221, 183, 255, 0.2);
+}
+
+.nf-image-overlay {
+    background: linear-gradient(90deg, rgba(7, 13, 31, 0.82), transparent);
+}
+
+.text-on-primary {
+    color: var(--on-primary);
+}
+
+.text-on-primary-container {
+    color: var(--on-primary-container);
+}
+
+.text-on-surface-variant {
+    color: var(--on-surface-variant);
+}
+
+.text-on-secondary-container {
+    color: var(--on-secondary-container);
+}
+
+.text-primary,
+.hover\:text-primary:hover {
+    color: var(--primary);
+}
+
+.text-tertiary,
+.hover\:text-tertiary:hover {
+    color: var(--tertiary);
+}
+
+.border,
+.border-outline-variant\/15,
+.border-outline-variant\/30 {
+    border: var(--ghost-border);
+}
+
+.rounded-lg {
+    border-radius: var(--radius-default);
+}
+
+.rounded-xl {
+    border-radius: var(--radius-xl);
+}
+
+.rounded-full {
+    border-radius: var(--radius-full);
+}
+
+.shadow-xl,
+.shadow-2xl {
+    box-shadow: var(--shadow-ambient);
+}
+
+.group:hover .group-hover\:scale-105 {
+    transform: scale(1.05);
+}
+
+.group:hover .group-hover\:grayscale-0 {
+    filter: grayscale(0);
+}
+
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
@@ -82,17 +311,27 @@ Tags: block-theme, full-site-editing, custom-colors, custom-logo, featured-image
     scrollbar-width: none;
 }
 
-/* Image Hover Effects */
-.group:hover .group-hover\:scale-105 {
-    transform: scale(1.05);
+.wp-block-cover .wp-block-cover__background.has-surface-background-color {
+    background-color: rgba(7, 13, 31, 0.65) !important;
+    opacity: 1 !important;
 }
 
-.group:hover .group-hover\:grayscale-0 {
-    filter: grayscale(0);
+.nf-tertiary-link .wp-block-button__link {
+    background: transparent;
+    border: 0;
+    color: var(--tertiary);
+    padding: 0;
 }
 
-/* Ensure dark background for body */
-body {
-    background-color: #070d1f;
-    color: #dfe4ff;
+.nf-footer {
+    background-color: var(--surface-container-low);
+}
+
+.nf-footer a {
+    color: var(--on-surface-variant);
+    text-decoration: none;
+}
+
+.nf-footer a:hover {
+    color: var(--tertiary);
 }

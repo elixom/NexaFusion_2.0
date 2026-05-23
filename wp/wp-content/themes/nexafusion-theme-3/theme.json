@@ -17,11 +17,23 @@
 		"typography": {
 			"dropCap": false,
 			"fluid": true,
+			"fontFamilies": [
+				{
+					"fontFamily": "Manrope, sans-serif",
+					"slug": "display",
+					"name": "Display"
+				},
+				{
+					"fontFamily": "Inter, sans-serif",
+					"slug": "body",
+					"name": "Body"
+				}
+			],
 			"fontSizes": [
 				{
-					"slug": "small",
+					"slug": "label-md",
 					"size": "0.875rem",
-					"name": "Small"
+					"name": "Label Medium"
 				},
 				{
 					"slug": "medium",
@@ -34,14 +46,14 @@
 					"name": "Large"
 				},
 				{
-					"slug": "x-large",
-					"size": "1.875rem",
-					"name": "Extra Large"
+					"slug": "display-md",
+					"size": "2.5rem",
+					"name": "Display Medium"
 				},
 				{
-					"slug": "xx-large",
-					"size": "3rem",
-					"name": "2X Large"
+					"slug": "display-lg",
+					"size": "3.5rem",
+					"name": "Display Large"
 				}
 			]
 		},
@@ -61,6 +73,16 @@
 					"name": "Primary Container"
 				},
 				{
+					"slug": "on-primary",
+					"color": "#00185c",
+					"name": "On Primary"
+				},
+				{
+					"slug": "on-primary-container",
+					"color": "#ffffff",
+					"name": "On Primary Container"
+				},
+				{
 					"slug": "tertiary",
 					"color": "#ddb7ff",
 					"name": "Tertiary"
@@ -76,13 +98,38 @@
 					"name": "Surface Container Low"
 				},
 				{
+					"slug": "surface-container",
+					"color": "#0f1832",
+					"name": "Surface Container"
+				},
+				{
 					"slug": "surface-container-high",
 					"color": "#131e3c",
 					"name": "Surface Container High"
 				},
 				{
+					"slug": "surface-container-highest",
+					"color": "#182446",
+					"name": "Surface Container Highest"
+				},
+				{
+					"slug": "surface-bright",
+					"color": "#1c2a51",
+					"name": "Surface Bright"
+				},
+				{
+					"slug": "secondary-container",
+					"color": "#18263d",
+					"name": "Secondary Container"
+				},
+				{
+					"slug": "on-secondary-container",
+					"color": "#96a4c0",
+					"name": "On Secondary Container"
+				},
+				{
 					"slug": "on-surface",
-					"color": "#dfe4ff",
+					"color": "#ffffff",
 					"name": "On Surface"
 				},
 				{
@@ -96,10 +143,10 @@
 	"styles": {
 		"color": {
 			"background": "var(--wp--preset--color--surface)",
-			"text": "var(--wp--preset--color--on-surface)"
+			"text": "var(--wp--preset--color--on-surface-variant)"
 		},
 		"typography": {
-			"fontFamily": "Inter, sans-serif",
+			"fontFamily": "var(--wp--preset--font-family--body)",
 			"fontSize": "1rem",
 			"lineHeight": "1.5"
 		},
@@ -115,14 +162,17 @@
 				}
 			},
 			"heading": {
+				"color": {
+					"text": "var(--wp--preset--color--on-primary-container)"
+				},
 				"typography": {
-					"fontFamily": "Manrope, sans-serif",
+					"fontFamily": "var(--wp--preset--font-family--display)",
 					"fontWeight": "700"
 				}
 			},
 			"h1": {
 				"typography": {
-					"fontSize": "3rem",
+					"fontSize": "var(--wp--preset--font-size--display-lg)",
 					"fontWeight": "800"
 				}
 			}

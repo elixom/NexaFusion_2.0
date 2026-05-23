@@ -2,12 +2,12 @@
 
 ## Project Overview
 
-This file governs all AI-assisted development on the **NexaFusion WordPress theme**.  The theme is built **from scratch** — no parent theme, but based primarily on the "twentytwentyfive" theme.
+This file governs all AI-assisted development on the **NexaFusion WordPress theme**. The theme is built **from scratch** — no parent theme — as a **Full Site Editing (FSE) block theme** inspired by the structure and quality standards of `twentytwentyfive` theme.
 
-The built theme is saved in the "nexafusion-theme-3"
-The themes are all stored in the folder "wp/wp-content/themes"
+The built theme is saved in `nexafusion-theme-3`.
+The themes are all stored in `wp/wp-content/themes`.
 
-The design language is defined by the **"Caribbean Nocturne"** design system (see `DESIGN.md` and the `DESIGN/` folder for Stitch sample files). All decisions — layout, color, typography, component structure — must trace back to that system.
+The design language is defined by the **Caribbean Nocturne** design system (see `DESIGN/nexa_cobalt/DESIGN.md` and the `DESIGN/` folder for Stitch sample files). All decisions — layout, color, typography, component structure — must trace back to that system.
 
 ---
 
@@ -15,12 +15,13 @@ The design language is defined by the **"Caribbean Nocturne"** design system (se
 
 You are authorized to:
 
-- Generate all PHP theme files (`functions.php`, template files, template parts, hooks)
-- Write all CSS/SCSS following the design system tokens below
-- Scaffold the WordPress theme directory structure
-- Create block patterns, `theme.json`, and block template files (if FSE is used)
-- Write JavaScript for interactive components (vanilla JS or minimal jQuery where WordPress requires it)
-- Suggest and implement the `DESIGN/` Stitch samples as reusable template parts
+- Generate and maintain FSE block theme files (`theme.json`, block templates, template parts, patterns, styles, and `functions.php`)
+- Write all CSS following the design system tokens below
+- Scaffold and maintain the WordPress block theme directory structure
+- Create block patterns, `theme.json`, block template files, and reusable template parts
+- Write JavaScript for interactive components only when required (vanilla JS or minimal jQuery where WordPress requires it)
+- Suggest and implement the `DESIGN/` Stitch samples as reusable block patterns or template parts
+- Read and use the WordPress theme documentation at https://developer.wordpress.org/themes/
 
 You must **not**:
 
@@ -29,57 +30,47 @@ You must **not**:
 - Use CSS `border` lines for sectioning (see the No-Line Rule)
 - Use `box-shadow` values that reference pure black
 - Use `#ffffff` for body or secondary text
+- Inject CDN scripts/styles directly into template files or `wp_head`; use WordPress enqueue APIs and local theme CSS/JS
 
 ---
 ## Project Directory Structure
 
 
-## Theme Directory Structure
+## FSE Block Theme Directory Structure
 /
-├── agents.md                  ← this file
-├── DESIGN.md                  ← design system source of truth
-├── DESIGN/                    ← Stitch sample files (reference for components)
-├── wp/wp-content/themes/      ← wordpress themes folder
+├── AGENTS.md                  ← this file
+├── DESIGN/                    ← Stitch sample files and design-system documentation
+├── wp/wp-content/themes/      ← WordPress themes folder
 
 ```
 nexafusion-theme-3/
-├── style.css                  ← Theme header + base reset
-├── functions.php              ← Enqueue scripts/styles, register menus, theme support
-├── index.php
-├── front-page.php
-├── header.php
-├── footer.php
-├── page.php
-├── single.php
-├── archive.php
-├── 404.php
-├── template-parts/
-│   ├── hero.php
-│   ├── cards.php
-│   ├── cta.php
-│   ├── nav.php
-│   └── footer-widgets.php
+├── style.css                  ← Theme header + global styles/tokens
+├── functions.php              ← Enqueue assets, register menus, theme support
+├── index.php                  ← Required fallback file for block themes
+├── theme.json                 ← Global settings, presets, template-part areas
+├── templates/                 ← FSE block templates
+│   ├── front-page.html
+│   ├── index.html
+│   ├── page.html
+│   └── single.html
+├── parts/                     ← FSE template parts
+│   ├── header.html
+│   └── footer.html
+├── patterns/                  ← Optional PHP block patterns for reusable translated sections
 ├── assets/
-│   ├── css/
-│   │   ├── main.css
-│   │   └── components/
-│   │       ├── buttons.css
-│   │       ├── cards.css
-│   │       ├── forms.css
-│   │       └── chips.css
-│   ├── js/
-│   │   └── main.js
-│   └── fonts/
-│       ├── manrope/
-│       └── inter/
-└── screenshot.png
+│   ├── css/                   ← Optional split CSS loaded through enqueue APIs
+│   ├── js/                    ← Optional local JavaScript loaded through enqueue APIs
+│   └── fonts/                 ← Optional self-hosted fonts
+└── screenshot.png             ← Theme screenshot when prepared for distribution
 ```
+
+Classic PHP templates such as `front-page.php`, `header.php`, `footer.php`, `page.php`, `single.php`, `archive.php`, and `404.php` are **not required** for this theme unless the project explicitly moves away from FSE.
 
 ---
 
 ## Design Tokens (CSS Custom Properties)
 
-All styles must use these CSS variables. Never hardcode hex values directly in component CSS.
+All custom component CSS must use these CSS variables. Never hardcode hex values directly in component CSS except inside the token definitions themselves.
 
 ```css
 :root {
@@ -171,11 +162,11 @@ Cards: minimum `2rem` internal padding. If a section feels busy, double its vert
 
 ### Buttons
 
-| Type      | Background                    | Border              | Text color          | Radius              |
-|-----------|-------------------------------|---------------------|---------------------|---------------------|
-| Primary   | `var(--gradient-primary)`     | none                | `var(--on-primary)` | `var(--radius-default)` or `var(--radius-full)` |
-| Secondary | transparent                   | `var(--ghost-border)` | `var(--primary)` | matches primary     |
-| Tertiary  | none                          | none                | `var(--tertiary)`   | none (text link + chevron) |
+| Type      | Background                    | Border                | Text color          | Radius              |
+|-----------|-------------------------------|-----------------------|---------------------|---------------------|
+| Primary   | `var(--gradient-primary)`     | none                  | `var(--on-primary)` | `var(--radius-default)` or `var(--radius-full)` |
+| Secondary | transparent                   | `var(--ghost-border)` | `var(--primary)`    | matches primary     |
+| Tertiary  | none                          | none                  | `var(--tertiary)`   | none (text link + chevron) |
 
 ### Cards
 - Background: `var(--surface-container-high)`
@@ -198,7 +189,7 @@ Cards: minimum `2rem` internal padding. If a section feels busy, double its vert
 
 ## Stitch Design Samples
 
-The `DESIGN/` folder contains Stitch-generated sample files that serve as the visual reference for key sections and components. When implementing any template part, you must:
+The `DESIGN/` folder contains Stitch-generated sample files that serve as the visual reference for key sections and components. When implementing any template part, template, or pattern, you must:
 
 1. Review the corresponding sample in `DESIGN/` before writing markup
 2. Match the layout intent of the sample using the token system above
@@ -208,22 +199,24 @@ The `DESIGN/` folder contains Stitch-generated sample files that serve as the vi
 
 ## WordPress-Specific Guidelines
 
-- Use `wp_enqueue_style()` and `wp_enqueue_script()` — no hardcoded `<link>` or `<script>` tags in templates
+- Use `wp_enqueue_style()` and `wp_enqueue_script()` for local theme assets; do not hardcode `<link>` or `<script>` tags in templates
 - Register navigation menus in `functions.php`: at minimum `primary` and `footer`
-- Use `get_template_part()` for all reusable sections
-- All user-facing strings must be wrapped in `__()` or `_e()` with the `'nexafusion'` text domain
-- Images: use `wp_get_attachment_image()` for WordPress-managed images; hero background images via CSS `background-image` with a dark blue overlay (`rgba(7, 13, 31, 0.65)`) to maintain legibility
-- Avoid inline styles in PHP templates; add modifier classes and handle in CSS
+- Use FSE template parts (`parts/*.html`) and block patterns (`patterns/*.php`) for reusable sections
+- Use the `'nexafusion'` text domain in PHP files and the `Text Domain: nexafusion` theme header
+- Wrap user-facing PHP strings in `__()`, `esc_html__()`, `_e()`, or related escaping translation functions with the `'nexafusion'` text domain
+- In `.html` block templates and parts, keep user-facing strings clear and extractable by WordPress i18n tooling; use PHP block patterns when a section needs explicit translation wrappers
+- Images: use WordPress-managed images where possible. If a hero uses a CSS background image, pair it with a dark blue overlay (`rgba(7, 13, 31, 0.65)`) to maintain legibility
+- Avoid inline styles in PHP templates; add modifier classes and handle in CSS. Serialized block styles in `.html` templates should be minimized and replaced with classes where practical
 
 ---
 
 ## Commit Conventions
 
 ```
-feat: add hero template part with glassmorphic nav
+feat: add FSE hero pattern with glassmorphic nav
 fix: correct ambient shadow on service cards
 style: apply No-Line rule to testimonials section
-refactor: extract button styles to components/buttons.css
+refactor: extract reusable block section styles
 ```
 
 ---
