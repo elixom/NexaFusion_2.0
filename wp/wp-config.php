@@ -107,10 +107,19 @@ if (!isset($_ENV['SKIP_MYSQL_SSL'])) {
 
 $_SERVER['HTTPS'] = 'on';
 
-// Inject the true host.
-$headers = getallheaders();
+// Inject the true host when the serverless adapter provides it.
+$headers = function_exists( 'getallheaders' ) ? getallheaders() : array();
 if (isset($headers['injectHost'])) {
   $_SERVER['HTTP_HOST'] = $headers['injectHost'];
+}
+
+if (!empty($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+  $forwarded_hosts = explode(',', $_SERVER['HTTP_X_FORWARDED_HOST']);
+  $_SERVER['HTTP_HOST'] = trim($forwarded_hosts[0]);
+}
+
+if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO'])) {
+  $_SERVER['HTTPS'] = trim($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https' ? 'on' : 'off';
 }
 
 define('WP_SITEURL', 'https://' . $_SERVER['HTTP_HOST']);
