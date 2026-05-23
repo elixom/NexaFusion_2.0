@@ -1,0 +1,123 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"pt-32 overflow-hidden"} -->
+<main class="wp-block-group pt-32 overflow-hidden">
+
+    <!-- wp:group {"className":"nf-testimonials-hero px-8 max-w-7xl mx-auto relative py-24"} -->
+    <div class="wp-block-group nf-testimonials-hero px-8 max-w-7xl mx-auto relative py-24">
+        <!-- wp:html -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-[120px]" aria-hidden="true"></div>
+        <!-- /wp:html -->
+
+        <!-- wp:html -->
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-tertiary/10 rounded-full blur-[120px]" aria-hidden="true"></div>
+        <!-- /wp:html -->
+
+        <!-- wp:group {"className":"relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-end"} -->
+        <div class="wp-block-group relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+            <!-- wp:group {"className":"lg:col-span-8"} -->
+            <div class="wp-block-group lg:col-span-8">
+                <!-- wp:paragraph {"className":"text-sm font-bold tracking-widest uppercase text-tertiary mb-4"} -->
+                <p class="text-sm font-bold tracking-widest uppercase text-tertiary mb-4">Client Signal</p>
+                <!-- /wp:paragraph -->
+
+                <!-- wp:heading {"level":1,"className":"text-5xl md:text-7xl font-headline font-extrabold tracking-[-0.03em] text-on-primary-container leading-[1.1] mb-8"} -->
+                <h1 class="wp-block-heading text-5xl md:text-7xl font-headline font-extrabold tracking-[-0.03em] text-on-primary-container leading-[1.1] mb-8">Proof carried by the people who built with us.</h1>
+                <!-- /wp:heading -->
+            </div>
+            <!-- /wp:group -->
+
+            <!-- wp:group {"className":"lg:col-span-4 glass-panel rounded-xl p-8"} -->
+            <div class="wp-block-group lg:col-span-4 glass-panel rounded-xl p-8">
+                <!-- wp:paragraph {"className":"text-on-surface-variant text-lg leading-relaxed mb-6"} -->
+                <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Unfiltered reflections from founders, operators, and creative leads who trusted NexaFusion to transform digital ambition into measurable momentum.</p>
+                <!-- /wp:paragraph -->
+
+                <!-- wp:paragraph {"className":"text-xs font-bold text-primary uppercase tracking-widest"} -->
+                <p class="text-xs font-bold text-primary uppercase tracking-widest">Testimonials category feed</p>
+                <!-- /wp:paragraph -->
+            </div>
+            <!-- /wp:group -->
+        </div>
+        <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"className":"bg-surface-container-low py-32"} -->
+    <div class="wp-block-group bg-surface-container-low py-32">
+        <!-- wp:group {"className":"px-8 max-w-7xl mx-auto"} -->
+        <div class="wp-block-group px-8 max-w-7xl mx-auto">
+            <!-- wp:group {"className":"grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-center"} -->
+            <div class="wp-block-group grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-center">
+                <!-- wp:heading {"level":2,"className":"lg:col-span-7 text-4xl font-headline font-extrabold text-on-primary-container tracking-tight"} -->
+                <h2 class="wp-block-heading lg:col-span-7 text-4xl font-headline font-extrabold text-on-primary-container tracking-tight">Stories from the NexaFusion orbit</h2>
+                <!-- /wp:heading -->
+
+                <!-- wp:paragraph {"className":"lg:col-span-5 text-on-surface-variant leading-relaxed"} -->
+                <p class="lg:col-span-5 text-on-surface-variant leading-relaxed">Each card is pulled dynamically from posts assigned to the Testimonials category, keeping the page current without manual layout updates.</p>
+                <!-- /wp:paragraph -->
+            </div>
+            <!-- /wp:group -->
+
+            <!-- wp:query {"queryId":31,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":{"category":["testimonials"]}},"enhancedPagination":true,"className":"nexafusion-testimonials-query"} -->
+            <div class="wp-block-query nexafusion-testimonials-query"><!-- wp:post-template {"className":"nf-testimonials-grid","layout":{"type":"default"}} -->
+                <!-- wp:group {"className":"nf-testimonial-card p-8 rounded-xl bg-surface-container-high","style":{"spacing":{"padding":{"top":"2rem","right":"2rem","bottom":"2rem","left":"2rem"},"blockGap":"1.5rem"},"border":{"radius":"0.75rem"},"shadow":"0 8px 48px 0 rgba(158, 170, 211, 0.06)"},"layout":{"type":"flex","orientation":"vertical","flexWrap":"nowrap"}} -->
+                <div class="wp-block-group nf-testimonial-card p-8 rounded-xl bg-surface-container-high" style="border-radius:0.75rem;padding-top:2rem;padding-right:2rem;padding-bottom:2rem;padding-left:2rem;box-shadow:0 8px 48px 0 rgba(158, 170, 211, 0.06)"><!-- wp:post-featured-image {"isLink":false,"aspectRatio":"1","width":"72px","height":"72px","scale":"cover","className":"nf-testimonial-avatar rounded-full mb-6"} /-->
+
+                    <!-- wp:post-content {"className":"nf-testimonial-quote text-on-surface-variant text-lg leading-relaxed"} /--></div>
+                <!-- /wp:group -->
+                <!-- /wp:post-template -->
+
+                <!-- wp:query-no-results -->
+                <!-- wp:group {"className":"p-12 rounded-xl bg-surface-container-high text-center"} -->
+                <div class="wp-block-group p-12 rounded-xl bg-surface-container-high text-center"><!-- wp:paragraph {"className":"text-on-surface-variant text-lg leading-relaxed"} -->
+                    <p class="text-on-surface-variant text-lg leading-relaxed">Testimonials will appear here once posts are assigned to the Testimonials category.</p>
+                    <!-- /wp:paragraph --></div>
+                <!-- /wp:group -->
+                <!-- /wp:query-no-results -->
+
+                <!-- wp:query-pagination {"paginationArrow":"arrow","className":"nf-testimonials-pagination mt-16","layout":{"type":"flex","justifyContent":"center"}} -->
+                <!-- wp:query-pagination-previous {"label":"Newer stories"} /-->
+
+                <!-- wp:query-pagination-numbers /-->
+
+                <!-- wp:query-pagination-next {"label":"More stories"} /-->
+                <!-- /wp:query-pagination --></div>
+            <!-- /wp:query -->
+        </div>
+        <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"className":"max-w-7xl mx-auto px-8 py-24"} -->
+    <div class="wp-block-group max-w-7xl mx-auto px-8 py-24">
+        <!-- wp:group {"className":"nf-testimonials-cta rounded-xl p-12 relative overflow-hidden"} -->
+        <div class="wp-block-group nf-testimonials-cta rounded-xl p-12 relative overflow-hidden">
+            <!-- wp:html -->
+            <div class="absolute -top-24 -right-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" aria-hidden="true"></div>
+            <!-- /wp:html -->
+
+            <!-- wp:group {"className":"relative z-10 max-w-4xl"} -->
+            <div class="wp-block-group relative z-10 max-w-4xl">
+                <!-- wp:paragraph {"className":"text-sm font-bold tracking-widest uppercase text-tertiary mb-4"} -->
+                <p class="text-sm font-bold tracking-widest uppercase text-tertiary mb-4">Ready for the next story?</p>
+                <!-- /wp:paragraph -->
+
+                <!-- wp:heading {"level":2,"className":"text-4xl font-headline font-extrabold text-on-primary-container mb-6"} -->
+                <h2 class="wp-block-heading text-4xl font-headline font-extrabold text-on-primary-container mb-6">Build a digital presence your clients can feel.</h2>
+                <!-- /wp:heading -->
+
+                <!-- wp:paragraph {"className":"text-on-surface-variant text-lg leading-relaxed max-w-2xl"} -->
+                <p class="text-on-surface-variant text-lg leading-relaxed max-w-2xl">NexaFusion pairs atmospheric design, strategic clarity, and high-craft implementation for teams ready to become unforgettable.</p>
+                <!-- /wp:paragraph -->
+            </div>
+            <!-- /wp:group -->
+        </div>
+        <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

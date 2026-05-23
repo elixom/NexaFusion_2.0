@@ -453,6 +453,83 @@ a {
     transform: scale(1.015);
 }
 
+.nf-testimonials-hero {
+    background:
+        radial-gradient(circle at 14% 18%, rgba(125, 152, 255, 0.18), transparent 28rem),
+        radial-gradient(circle at 86% 82%, rgba(221, 183, 255, 0.14), transparent 24rem),
+        linear-gradient(180deg, var(--surface), var(--surface-container-low));
+}
+
+.nf-testimonials-grid {
+    align-items: start;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+}
+
+.nf-testimonial-card {
+    background:
+        radial-gradient(circle at 18% 12%, rgba(125, 152, 255, 0.12), transparent 14rem),
+        linear-gradient(135deg, var(--surface-container-high), var(--surface-container-highest));
+    box-shadow: var(--shadow-ambient);
+    min-height: 100%;
+    transition: transform 300ms ease, background 300ms ease;
+}
+
+.nf-testimonial-card:hover {
+    background:
+        radial-gradient(circle at 18% 12%, rgba(125, 152, 255, 0.18), transparent 16rem),
+        linear-gradient(135deg, var(--surface-container-highest), var(--surface-bright));
+    transform: translateY(-0.25rem);
+}
+
+.nf-testimonial-avatar img {
+    border-radius: var(--radius-full);
+    display: block;
+}
+
+.nf-testimonial-quote {
+    font-style: italic;
+    position: relative;
+}
+
+.nf-testimonial-quote::before {
+    color: var(--primary);
+    content: "\201C";
+    display: block;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 0.75;
+    margin-bottom: 1rem;
+}
+
+.nf-testimonial-quote > *:first-child {
+    margin-top: 0;
+}
+
+.nf-testimonial-quote > *:last-child {
+    margin-bottom: 0;
+}
+
+.nf-testimonials-cta {
+    background:
+        radial-gradient(circle at 88% 20%, rgba(125, 152, 255, 0.18), transparent 24rem),
+        radial-gradient(circle at 16% 82%, rgba(221, 183, 255, 0.12), transparent 20rem),
+        linear-gradient(135deg, var(--surface-container-highest), var(--surface-container));
+    box-shadow: var(--shadow-ambient);
+}
+
+.nf-testimonials-pagination a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.nf-testimonials-pagination a:hover {
+    color: var(--tertiary);
+}
+
 /* Local utility layer for serialized block template classes. */
 .relative { position: relative; }
 .absolute { position: absolute; }
@@ -464,6 +541,7 @@ a {
 .left-0 { left: 0; }
 .-top-24 { top: -6rem; }
 .-left-24 { left: -6rem; }
+.-right-0 { right: 0; }
 .z-10 { z-index: 10; }
 .z-20 { z-index: 20; }
 .z-50 { z-index: 50; }
@@ -606,6 +684,10 @@ a {
 }
 
 @media (min-width: 768px) {
+    .nf-testimonials-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .md\:flex { display: flex; }
     .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .md\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
@@ -620,6 +702,10 @@ a {
 }
 
 @media (min-width: 1024px) {
+    .nf-testimonials-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
     .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
     .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }

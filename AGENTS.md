@@ -9,12 +9,14 @@ The themes are all stored in `wp/wp-content/themes`.
 
 The design language is defined by the **Caribbean Nocturne** design system (see `DESIGN/nexa_cobalt/DESIGN.md` and the `DESIGN/` folder for Stitch sample files). All decisions — layout, color, typography, component structure — must trace back to that system.
 
+## Role
+Act as an expert WordPress Full Site Editing (FSE) block theme developer. 
+
 ---
 
 ## Scope of AI Involvement
 
 You are authorized to:
-
 - Generate and maintain FSE block theme files (`theme.json`, block templates, template parts, patterns, styles, and `functions.php`)
 - Write all CSS following the design system tokens below
 - Scaffold and maintain the WordPress block theme directory structure

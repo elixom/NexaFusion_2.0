@@ -195,6 +195,11 @@
 			"name": "portfolio",
 			"title": "Portfolio Layout",
 			"postTypes": ["page"]
+		},
+		{
+			"name": "testimonials",
+			"title": "Testimonials Layout",
+			"postTypes": ["page"]
 		}
 	]
 }
