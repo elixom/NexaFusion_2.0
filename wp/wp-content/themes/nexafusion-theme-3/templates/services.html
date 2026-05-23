@@ -1,0 +1,113 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"pt-32 overflow-hidden"} -->
+<main class="wp-block-group pt-32 overflow-hidden">
+
+    <!-- wp:group {"className":"nf-services-hero px-8 max-w-7xl mx-auto relative py-24"} -->
+    <div class="wp-block-group nf-services-hero px-8 max-w-7xl mx-auto relative py-24">
+        <!-- wp:html -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-[120px]" aria-hidden="true"></div>
+        <!-- /wp:html -->
+
+        <!-- wp:html -->
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-tertiary/10 rounded-full blur-[120px]" aria-hidden="true"></div>
+        <!-- /wp:html -->
+
+        <!-- wp:group {"className":"relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-end"} -->
+        <div class="wp-block-group relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+            <!-- wp:group {"className":"lg:col-span-8"} -->
+            <div class="wp-block-group lg:col-span-8">
+                <!-- wp:paragraph {"className":"inline-block px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase mb-6"} -->
+                <p class="inline-block px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase mb-6">Services Archive</p>
+                <!-- /wp:paragraph -->
+
+                <!-- wp:heading {"level":1,"className":"text-5xl md:text-7xl font-headline font-extrabold tracking-[-0.03em] text-on-primary-container leading-[1.1] mb-8"} -->
+                <h1 class="wp-block-heading text-5xl md:text-7xl font-headline font-extrabold tracking-[-0.03em] text-on-primary-container leading-[1.1] mb-8">Digital transformation, curated with nocturne precision.</h1>
+                <!-- /wp:heading -->
+
+                <!-- wp:paragraph {"className":"text-xl text-on-surface-variant max-w-2xl leading-relaxed"} -->
+                <p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed">Explore NexaFusion capabilities pulled dynamically from the Services category, designed as a living archive of strategy, identity, content, and high-performance digital craft.</p>
+                <!-- /wp:paragraph -->
+            </div>
+            <!-- /wp:group -->
+
+            <!-- wp:group {"className":"lg:col-span-4 glass-panel rounded-xl p-8"} -->
+            <div class="wp-block-group lg:col-span-4 glass-panel rounded-xl p-8">
+                <!-- wp:paragraph {"className":"text-4xl font-headline font-black text-on-primary-container mb-4"} -->
+                <p class="text-4xl font-headline font-black text-on-primary-container mb-4">Services</p>
+                <!-- /wp:paragraph -->
+
+                <!-- wp:paragraph {"className":"text-on-surface-variant leading-relaxed mb-6"} -->
+                <p class="text-on-surface-variant leading-relaxed mb-6">A premium category feed for agency offerings, refreshed automatically as service posts are published.</p>
+                <!-- /wp:paragraph -->
+
+                <!-- wp:paragraph {"className":"text-xs font-bold text-primary uppercase tracking-widest"} -->
+                <p class="text-xs font-bold text-primary uppercase tracking-widest">Dynamic Query Loop</p>
+                <!-- /wp:paragraph -->
+            </div>
+            <!-- /wp:group -->
+        </div>
+        <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"className":"bg-surface-container-low py-32"} -->
+    <div class="wp-block-group bg-surface-container-low py-32">
+        <!-- wp:group {"className":"px-8 max-w-7xl mx-auto"} -->
+        <div class="wp-block-group px-8 max-w-7xl mx-auto">
+            <!-- wp:group {"className":"grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-center"} -->
+            <div class="wp-block-group grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-center">
+                <!-- wp:heading {"level":2,"className":"lg:col-span-7 text-4xl font-headline font-extrabold text-on-primary-container tracking-tight"} -->
+                <h2 class="wp-block-heading lg:col-span-7 text-4xl font-headline font-extrabold text-on-primary-container tracking-tight">Capabilities built for market presence</h2>
+                <!-- /wp:heading -->
+
+                <!-- wp:paragraph {"className":"lg:col-span-5 text-on-surface-variant text-lg leading-relaxed"} -->
+                <p class="lg:col-span-5 text-on-surface-variant text-lg leading-relaxed">Every card below is sourced from posts assigned to the Services category slug, with featured imagery, hierarchy-rich titles, and concise excerpts optimized for scanning.</p>
+                <!-- /wp:paragraph -->
+            </div>
+            <!-- /wp:group -->
+
+            <!-- wp:query {"queryId":41,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":{"category":["services"]}},"enhancedPagination":true,"className":"nexafusion-services-query"} -->
+            <div class="wp-block-query nexafusion-services-query">
+                <!-- wp:post-template {"className":"nf-services-grid","layout":{"type":"default"}} -->
+                    <!-- wp:group {"className":"nf-service-card group rounded-xl overflow-hidden bg-surface-container-high"} -->
+                    <div class="wp-block-group nf-service-card group rounded-xl overflow-hidden bg-surface-container-high">
+                        <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/9","scale":"cover","className":"nf-service-card-image aspect-video w-full object-cover group-hover:scale-105 transition-transform duration-500"} /-->
+
+                        <!-- wp:group {"className":"nf-service-card-body p-8"} -->
+                        <div class="wp-block-group nf-service-card-body p-8">
+                            <!-- wp:post-title {"isLink":true,"level":3,"className":"text-2xl font-headline font-bold text-on-primary-container mb-4 leading-tight"} /-->
+
+                            <!-- wp:post-excerpt {"moreText":"Explore Service","excerptLength":24,"className":"nf-service-card-excerpt text-on-surface-variant leading-relaxed"} /-->
+                        </div>
+                        <!-- /wp:group -->
+                    </div>
+                    <!-- /wp:group -->
+                <!-- /wp:post-template -->
+
+                <!-- wp:query-no-results -->
+                    <!-- wp:group {"className":"p-12 rounded-xl bg-surface-container-high text-center"} -->
+                    <div class="wp-block-group p-12 rounded-xl bg-surface-container-high text-center">
+                        <!-- wp:paragraph {"className":"text-on-surface-variant text-lg leading-relaxed"} -->
+                        <p class="text-on-surface-variant text-lg leading-relaxed">Services will appear here once posts are assigned to the Services category.</p>
+                        <!-- /wp:paragraph -->
+                    </div>
+                    <!-- /wp:group -->
+                <!-- /wp:query-no-results -->
+
+                <!-- wp:query-pagination {"paginationArrow":"arrow","className":"nf-services-pagination mt-16","layout":{"type":"flex","justifyContent":"center"}} -->
+                    <!-- wp:query-pagination-previous {"label":"Newer services"} /-->
+                    <!-- wp:query-pagination-numbers /-->
+                    <!-- wp:query-pagination-next {"label":"More services"} /-->
+                <!-- /wp:query-pagination -->
+            </div>
+            <!-- /wp:query -->
+        </div>
+        <!-- /wp:group -->
+    </div>
+    <!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

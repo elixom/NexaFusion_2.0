@@ -200,6 +200,11 @@
 			"name": "testimonials",
 			"title": "Testimonials Layout",
 			"postTypes": ["page"]
+		},
+		{
+			"name": "services",
+			"title": "Services Layout",
+			"postTypes": ["page"]
 		}
 	]
 }

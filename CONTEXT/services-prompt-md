@@ -1,0 +1,16 @@
+
+Task: Build an engaging, premium layout template for the NexaFusion Services archive/listing page.
+
+Strict Project Guidelines:
+1. Build the template in the theme
+
+
+Layout & Technical Specifications:
+- Query Engine: Implement a Query Loop block (`wp:query`) configured explicitly to dynamically query, filter, and fetch posts from the "Services" category taxonomy slug.
+- Layout Architecture: 
+  * Craft a highly visual, modern grid or flex-based column layout (e.g., a balanced 2 or 3-column configuration) that aligns with NexaFusion’s high-end digital agency aesthetic.
+  * The cards should feature clear spacing, optimized block padding, clean modern line-heights, and a responsive flow that adapts gracefully from desktop screens down to mobile layouts.
+- Component Composition: Within the `wp:post-template`, every looped service item card must strictly contain:
+  * Post Featured Image block (`wp:post-featured-image`) to act as a prominent visual header or thumbnail for the card.
+  * Post Title block (`wp:post-title`), styled cleanly to command hierarchy as the main service heading.
+  * Post Excerpt block (`wp:post-excerpt`) to display a concise summary/excerpt of the service content, avoiding full text overflows.
