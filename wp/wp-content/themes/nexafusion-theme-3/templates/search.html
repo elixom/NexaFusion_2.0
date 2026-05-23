@@ -1,0 +1,66 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"pt-32 min-h-screen"} -->
+<main class="wp-block-group pt-32 min-h-screen">
+
+    <!-- wp:group {"className":"max-w-7xl mx-auto px-8 py-24"} -->
+    <div class="wp-block-group max-w-7xl mx-auto px-8 py-24">
+
+        <!-- wp:group {"className":"max-w-4xl mb-16"} -->
+        <div class="wp-block-group max-w-4xl mb-16">
+            <!-- wp:paragraph {"className":"text-sm font-bold tracking-widest uppercase text-tertiary mb-4"} -->
+            <p class="text-sm font-bold tracking-widest uppercase text-tertiary mb-4">Search</p>
+            <!-- /wp:paragraph -->
+
+            <!-- wp:query-title {"type":"search","className":"text-5xl md:text-7xl font-headline font-extrabold tracking-[-0.03em] text-on-primary-container leading-[1.1] mb-8"} /-->
+
+            <!-- wp:search {"label":"Search","showLabel":false,"placeholder":"Search insights and case notes...","buttonText":"Search","buttonPosition":"button-inside","className":"nf-search-form max-w-2xl"} /-->
+        </div>
+        <!-- /wp:group -->
+
+        <!-- wp:query {"queryId":3,"query":{"perPage":9,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->
+        <div class="wp-block-query">
+            <!-- wp:post-template {"className":"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"} -->
+                <!-- wp:group {"className":"bg-surface-container-high rounded-xl overflow-hidden hover:bg-surface-bright transition-colors group"} -->
+                <div class="wp-block-group bg-surface-container-high rounded-xl overflow-hidden hover:bg-surface-bright transition-colors group">
+                    <!-- wp:post-featured-image {"isLink":true,"className":"aspect-video w-full object-cover group-hover:scale-105 transition-transform duration-500"} /-->
+
+                    <!-- wp:group {"className":"p-8"} -->
+                    <div class="wp-block-group p-8">
+                        <!-- wp:post-date {"className":"text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-3 block"} /-->
+                        <!-- wp:post-title {"isLink":true,"className":"text-2xl font-headline font-bold text-on-primary-container mb-3"} /-->
+                        <!-- wp:post-excerpt {"moreText":"Read More","className":"text-on-surface-variant mb-4"} /-->
+                    </div>
+                    <!-- /wp:group -->
+                </div>
+                <!-- /wp:group -->
+            <!-- /wp:post-template -->
+
+            <!-- wp:query-pagination {"className":"flex justify-center gap-4 mt-16"} -->
+                <!-- wp:query-pagination-previous {"className":"px-6 py-3 bg-surface-container-high rounded-lg text-primary font-bold hover:bg-surface-bright transition-colors"} /-->
+                <!-- wp:query-pagination-numbers /-->
+                <!-- wp:query-pagination-next {"className":"px-6 py-3 bg-surface-container-high rounded-lg text-primary font-bold hover:bg-surface-bright transition-colors"} /-->
+            <!-- /wp:query-pagination -->
+
+            <!-- wp:query-no-results -->
+                <!-- wp:group {"className":"bg-surface-container-low rounded-xl p-12 text-center"} -->
+                <div class="wp-block-group bg-surface-container-low rounded-xl p-12 text-center">
+                    <!-- wp:heading {"level":2,"className":"text-3xl font-headline font-bold text-on-primary-container mb-4"} -->
+                    <h2 class="wp-block-heading text-3xl font-headline font-bold text-on-primary-container mb-4">No matching signals found.</h2>
+                    <!-- /wp:heading -->
+                    <!-- wp:paragraph {"className":"text-on-surface-variant"} -->
+                    <p class="text-on-surface-variant">Try a different search term or browse the latest insights.</p>
+                    <!-- /wp:paragraph -->
+                </div>
+                <!-- /wp:group -->
+            <!-- /wp:query-no-results -->
+        </div>
+        <!-- /wp:query -->
+
+    </div>
+    <!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
