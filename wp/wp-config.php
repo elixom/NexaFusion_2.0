@@ -55,6 +55,15 @@ else {
   }
 }
 
+if (isset($_ENV['S3_KEY_ID']) && isset($_ENV['S3_ACCESS_KEY'])) {
+
+  define( 'AS3CF_SETTINGS', serialize( array(
+    'provider' => 'aws',
+    'access-key-id' => $_ENV['S3_KEY_ID'],
+    'secret-access-key' => $_ENV['S3_ACCESS_KEY'],
+  ) ) );
+}
+
 /**#@+
  * Authentication unique keys and salts.
  *
