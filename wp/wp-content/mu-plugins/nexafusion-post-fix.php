@@ -56,20 +56,22 @@ function nexafusion_check_query_results( $query ) {
 add_action( 'the_posts', 'nexafusion_check_query_results_filter', 999, 2 );
 
 function nexafusion_check_query_results_filter( $posts, $query ) {
-	if ( ! is_admin() || ! $query->is_main_query() ) {
+	// Check if this is an admin post list query
+	if ( ! is_admin() ) {
 		return $posts;
 	}
 
-	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
-	if ( ! $screen || $screen->id !== 'edit-post' ) {
+	// Check if this is a post query (not pages, media, etc.)
+	if ( ! isset( $query->query['post_type'] ) || $query->query['post_type'] !== 'post' ) {
 		return $posts;
 	}
 
-	error_log( 'Posts returned: ' . count( $posts ) );
+	error_log( 'Posts returned by query: ' . count( $posts ) );
+	error_log( 'Query found_posts: ' . $query->found_posts );
 	
-	// If we have no posts but should have some, try a direct query
-	if ( empty( $posts ) && $query->found_posts > 0 ) {
-		error_log( 'Attempting direct database query to retrieve posts...' );
+	// If we have no posts returned, try a direct query
+	if ( empty( $posts ) ) {
+		error_log( 'No posts returned - attempting direct database query...' );
 		
 		global $wpdb;
 		$direct_posts = $wpdb->get_results( 
@@ -81,8 +83,13 @@ function nexafusion_check_query_results_filter( $posts, $query ) {
 		);
 		
 		if ( ! empty( $direct_posts ) ) {
-			error_log( 'Direct query found ' . count( $direct_posts ) . ' posts. Using direct results.' );
+			error_log( 'SUCCESS: Direct query found ' . count( $direct_posts ) . ' posts!' );
+			// Update the query object so pagination works
+			$query->found_posts = count( $direct_posts );
+			$query->max_num_pages = 1;
 			return $direct_posts;
+		} else {
+			error_log( 'WARNING: Direct query also returned no posts. Database may be empty.' );
 		}
 	}
 	
