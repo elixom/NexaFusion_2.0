@@ -1,8 +1,8 @@
 <?php
 /**
- * NexaFusion Post Display Fix
+ * NexaFusion Post & Media Display Fix
  * 
- * Diagnostic and fix plugin for posts not showing in admin list.
+ * Diagnostic and fix plugin for posts and media not showing in admin lists.
  * 
  * @package NexaFusion
  */
@@ -56,40 +56,58 @@ function nexafusion_check_query_results( $query ) {
 add_action( 'the_posts', 'nexafusion_check_query_results_filter', 999, 2 );
 
 function nexafusion_check_query_results_filter( $posts, $query ) {
-	// Check if this is an admin post list query
+	// Check if this is an admin query
 	if ( ! is_admin() ) {
 		return $posts;
 	}
 
-	// Check if this is a post query (not pages, media, etc.)
-	if ( ! isset( $query->query['post_type'] ) || $query->query['post_type'] !== 'post' ) {
+	// Determine what type of query this is
+	$post_type = isset( $query->query['post_type'] ) ? $query->query['post_type'] : null;
+	
+	// Skip if not a post or attachment query
+	if ( $post_type !== 'post' && $post_type !== 'attachment' ) {
 		return $posts;
 	}
 
-	error_log( 'Posts returned by query: ' . count( $posts ) );
+	error_log( "=== Query for {$post_type} ===" );
+	error_log( 'Items returned by query: ' . count( $posts ) );
 	error_log( 'Query found_posts: ' . $query->found_posts );
 	
-	// If we have no posts returned, try a direct query
+	// If we have no items returned, try a direct query
 	if ( empty( $posts ) ) {
-		error_log( 'No posts returned - attempting direct database query...' );
+		error_log( "No {$post_type} returned - attempting direct database query..." );
 		
 		global $wpdb;
-		$direct_posts = $wpdb->get_results( 
-			"SELECT * FROM {$wpdb->posts} 
-			WHERE post_type = 'post' 
-			AND post_status = 'publish' 
-			ORDER BY post_date DESC 
-			LIMIT 20"
-		);
+		
+		// Build query based on post type
+		if ( $post_type === 'attachment' ) {
+			// Media library query
+			$direct_posts = $wpdb->get_results( 
+				"SELECT * FROM {$wpdb->posts} 
+				WHERE post_type = 'attachment' 
+				AND post_status = 'inherit' 
+				ORDER BY post_date DESC 
+				LIMIT 40"
+			);
+		} else {
+			// Regular posts query
+			$direct_posts = $wpdb->get_results( 
+				"SELECT * FROM {$wpdb->posts} 
+				WHERE post_type = 'post' 
+				AND post_status = 'publish' 
+				ORDER BY post_date DESC 
+				LIMIT 20"
+			);
+		}
 		
 		if ( ! empty( $direct_posts ) ) {
-			error_log( 'SUCCESS: Direct query found ' . count( $direct_posts ) . ' posts!' );
+			error_log( "SUCCESS: Direct query found " . count( $direct_posts ) . " {$post_type}!" );
 			// Update the query object so pagination works
 			$query->found_posts = count( $direct_posts );
 			$query->max_num_pages = 1;
 			return $direct_posts;
 		} else {
-			error_log( 'WARNING: Direct query also returned no posts. Database may be empty.' );
+			error_log( "WARNING: Direct query also returned no {$post_type}. Database may be empty." );
 		}
 	}
 	
@@ -101,10 +119,12 @@ function nexafusion_check_query_results_filter( $posts, $query ) {
  */
 function nexafusion_diagnostic_admin_notice() {
 	$screen = get_current_screen();
-	if ( $screen && $screen->id === 'edit-post' ) {
+	if ( $screen && ( $screen->id === 'edit-post' || $screen->id === 'upload' ) ) {
 		echo '<div class="notice notice-info"><p>';
-		echo '<strong>NexaFusion Diagnostic Active:</strong> Post query debugging is enabled. ';
-		echo 'Check your server error logs for detailed query information.';
+		echo '<strong>NexaFusion Diagnostic Active:</strong> Post & Media query debugging is enabled. ';
+		if ( $screen->id === 'upload' ) {
+			echo 'Media items are being retrieved via direct database query.';
+		}
 		echo '</p></div>';
 	}
 }
