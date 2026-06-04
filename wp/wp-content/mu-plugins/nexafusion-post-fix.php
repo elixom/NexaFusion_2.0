@@ -90,11 +90,11 @@ function nexafusion_check_query_results_filter( $posts, $query ) {
 				LIMIT 40"
 			);
 		} else {
-			// Regular posts query
+			// Regular posts query - include all statuses (publish, draft, pending, future, private)
 			$direct_posts = $wpdb->get_results( 
 				"SELECT * FROM {$wpdb->posts} 
 				WHERE post_type = 'post' 
-				AND post_status = 'publish' 
+				AND post_status IN ('publish', 'draft', 'pending', 'future', 'private') 
 				ORDER BY post_date DESC 
 				LIMIT 20"
 			);
