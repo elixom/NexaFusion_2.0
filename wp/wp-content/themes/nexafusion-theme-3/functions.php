@@ -59,57 +59,6 @@ if ( ! function_exists( 'nexafusion_enqueue_assets' ) ) :
 endif;
 add_action( 'wp_enqueue_scripts', 'nexafusion_enqueue_assets' );
 
-if ( ! function_exists( 'nexafusion_filter_services_template' ) ) :
-	/**
-	 * Filter posts on the services template to show only Services category.
-	 *
-	 * @param array    $query WP_Query arguments.
-	 * @param WP_Block $block Query block instance.
-	 * @return array
-	 */
-	function nexafusion_filter_services_template( $query, $block ) {
-		// Debug: Log when filter is called
-		error_log('=== NexaFusion Filter Called ===');
-		error_log('Query context: ' . print_r($block->context, true));
-		
-		// Only filter if we're on a services-related query
-		if ( empty( $block->context['queryId'] ) ) {
-			error_log('No queryId found in context');
-			return $query;
-		}
-		
-		$query_id = $block->context['queryId'];
-		error_log('Query ID: ' . $query_id);
-		
-		// Services template uses queryId 41
-		if ( 41 === $query_id ) {
-			$services_cat = get_category_by_slug( 'services' );
-			if ( $services_cat ) {
-				error_log('Services category found: ID=' . $services_cat->term_id);
-				$query['cat'] = $services_cat->term_id;
-				error_log('Applied cat filter: ' . $services_cat->term_id);
-			} else {
-				error_log('Services category NOT FOUND!');
-			}
-		}
-		
-		// Testimonials template uses queryId 31
-		if ( 31 === $query_id ) {
-			$testimonials_cat = get_category_by_slug( 'testimonials' );
-			if ( $testimonials_cat ) {
-				error_log('Testimonials category found: ID=' . $testimonials_cat->term_id);
-				$query['cat'] = $testimonials_cat->term_id;
-				error_log('Applied cat filter: ' . $testimonials_cat->term_id);
-			} else {
-				error_log('Testimonials category NOT FOUND!');
-			}
-		}
-		
-		error_log('Final query: ' . print_r($query, true));
-		return $query;
-	}
-endif;
-add_filter( 'query_loop_block_query_vars', 'nexafusion_filter_services_template', 10, 2 );
 
 if ( ! function_exists( 'nexafusion_body_classes' ) ) :
 	/**
