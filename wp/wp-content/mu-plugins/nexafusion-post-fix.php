@@ -64,8 +64,8 @@ function nexafusion_check_query_results_filter( $posts, $query ) {
 	// Determine what type of query this is
 	$post_type = isset( $query->query['post_type'] ) ? $query->query['post_type'] : null;
 	
-	// Skip if not a post or attachment query
-	if ( $post_type !== 'post' && $post_type !== 'attachment' ) {
+	// Skip if not a post, page, or attachment query
+	if ( $post_type !== 'post' && $post_type !== 'page' && $post_type !== 'attachment' ) {
 		return $posts;
 	}
 
@@ -79,6 +79,9 @@ function nexafusion_check_query_results_filter( $posts, $query ) {
 		
 		global $wpdb;
 		
+		// Get the post_status filter if it exists
+		$post_status = isset( $query->query_vars['post_status'] ) ? $query->query_vars['post_status'] : null;
+		
 		// Build query based on post type
 		if ( $post_type === 'attachment' ) {
 			// Media library query
@@ -90,11 +93,26 @@ function nexafusion_check_query_results_filter( $posts, $query ) {
 				LIMIT 40"
 			);
 		} else {
-			// Regular posts query - include all statuses (publish, draft, pending, future, private)
+			// Posts or Pages query
+			// Build the status filter
+			if ( ! empty( $post_status ) && $post_status !== 'any' ) {
+				// Specific status requested (e.g., 'draft', 'publish')
+				if ( is_array( $post_status ) ) {
+					$status_list = "'" . implode( "','", array_map( 'esc_sql', $post_status ) ) . "'";
+					$status_clause = "AND post_status IN ({$status_list})";
+				} else {
+					$status_clause = $wpdb->prepare( "AND post_status = %s", $post_status );
+				}
+				error_log( "Filtering by status: {$post_status}" );
+			} else {
+				// No specific status - show all non-trash statuses
+				$status_clause = "AND post_status IN ('publish', 'draft', 'pending', 'future', 'private')";
+			}
+			
 			$direct_posts = $wpdb->get_results( 
 				"SELECT * FROM {$wpdb->posts} 
-				WHERE post_type = 'post' 
-				AND post_status IN ('publish', 'draft', 'pending', 'future', 'private') 
+				WHERE post_type = '{$post_type}' 
+				{$status_clause}
 				ORDER BY post_date DESC 
 				LIMIT 20"
 			);
