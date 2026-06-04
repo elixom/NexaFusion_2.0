@@ -59,57 +59,42 @@ if ( ! function_exists( 'nexafusion_enqueue_assets' ) ) :
 endif;
 add_action( 'wp_enqueue_scripts', 'nexafusion_enqueue_assets' );
 
-if ( ! function_exists( 'nexafusion_filter_query_loop_by_category_slug' ) ) :
+if ( ! function_exists( 'nexafusion_filter_services_template' ) ) :
 	/**
-	 * Allows Query Loop blocks to use readable category slugs.
-	 *
-	 * This theme stores category filters in templates as slugs so they remain
-	 * portable across WordPress installs.
+	 * Filter posts on the services template to show only Services category.
 	 *
 	 * @param array    $query WP_Query arguments.
 	 * @param WP_Block $block Query block instance.
 	 * @return array
 	 */
-	function nexafusion_filter_query_loop_by_category_slug( $query, $block ) {
-		if ( empty( $block->context['query']['categorySlugs'] ) || ! is_array( $block->context['query']['categorySlugs'] ) ) {
+	function nexafusion_filter_services_template( $query, $block ) {
+		// Only filter if we're on a services-related query
+		if ( empty( $block->context['queryId'] ) ) {
 			return $query;
 		}
-
-		$category_slugs = array_filter(
-			$block->context['query']['categorySlugs'],
-			static function ( $category ) {
-				return is_string( $category ) && '' !== trim( $category );
-			}
-		);
-
-		if ( empty( $category_slugs ) ) {
-			return $query;
-		}
-
-		$category_ids = array();
-
-		foreach ( $category_slugs as $category_slug ) {
-			$term = get_category_by_slug( sanitize_title( $category_slug ) );
-
-			if ( $term instanceof WP_Term ) {
-				$category_ids[] = (int) $term->term_id;
+		
+		$query_id = $block->context['queryId'];
+		
+		// Services template uses queryId 41
+		if ( 41 === $query_id ) {
+			$services_cat = get_category_by_slug( 'services' );
+			if ( $services_cat ) {
+				$query['cat'] = $services_cat->term_id;
 			}
 		}
-
-		if ( empty( $category_ids ) ) {
-			return $query;
+		
+		// Testimonials template uses queryId 31
+		if ( 31 === $query_id ) {
+			$testimonials_cat = get_category_by_slug( 'testimonials' );
+			if ( $testimonials_cat ) {
+				$query['cat'] = $testimonials_cat->term_id;
+			}
 		}
-
-		$query['tax_query'][] = array(
-			'taxonomy'         => 'category',
-			'terms'            => array_unique( $category_ids ),
-			'include_children' => false,
-		);
-
+		
 		return $query;
 	}
 endif;
-add_filter( 'query_loop_block_query_vars', 'nexafusion_filter_query_loop_by_category_slug', 10, 2 );
+add_filter( 'query_loop_block_query_vars', 'nexafusion_filter_services_template', 10, 2 );
 
 if ( ! function_exists( 'nexafusion_body_classes' ) ) :
 	/**
