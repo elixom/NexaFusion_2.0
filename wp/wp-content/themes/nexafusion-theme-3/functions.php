@@ -97,6 +97,7 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 		print_r("==========fx nexafusion_category_query_by_slug==========");
 		print_r( $query );
 		print_r("==========block==========slug:{$slug}==========");
+		print_r( $block->blockName  . "<<<");
 		print_r( $block->query );
 		global $wpdb;
 		/* $wpdb->insert(
@@ -108,7 +109,7 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 				'%s',
 			)
 		); */
-		
+		/* 
 		$now             = current_time( 'mysql' );
 		$now_gmt         = current_time( 'mysql', true );
 				$first_post_guid = get_option( 'home' ) . '/?p=' . time();
@@ -122,7 +123,7 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 				'post_content'          =>  print_r( $block, true ),
 				'post_excerpt'          => '',
 				'post_title'            => __( 'Test Post' . time() ),
-				/* translators: Default post slug. */
+				
 				'post_name'             => sanitize_title( _x( 'hello-world-' . time(), 'Default post slug' ) ),
 				'post_modified'         => $now,
 				'post_modified_gmt'     => $now_gmt,
@@ -132,7 +133,7 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 				'pinged'                => '',
 				'post_content_filtered' => '',
 			)
-		);
+		); */
 		if ( '' === $slug ) {
 			return $query;
 		}
