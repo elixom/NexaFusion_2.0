@@ -80,10 +80,14 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 		$query_map  = array(
 			'nexafusion-services-query'     => 'services',
 			'nexafusion-testimonials-query' => 'testimonials',
+			'nexafusion-featured-query'     => 'featured',
+			'nexafusion-portfolio-query'    => 'portfolio',
 		);
 		$queryId_map  = array(
-			'41'     => 'services',
+			'41' => 'services',
 			'31' => 'testimonials',
+			'43' => 'featured',
+			'42' => 'portfolio',
 		);
 		$slug       = '';
 /*
@@ -180,6 +184,48 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 	}
 endif;
 add_filter( 'query_loop_block_query_vars', 'nexafusion_category_query_by_slug', 10, 2 );
+
+if ( ! function_exists( 'nexafusion_render_featured_query_when_populated' ) ) :
+	/**
+	 * Prevents the front-page featured posts query section from rendering when empty.
+	 *
+	 * @param string $block_content Rendered block content.
+	 * @param array  $block         Parsed block data.
+	 * @return string
+	 */
+	function nexafusion_render_featured_query_when_populated( $block_content, $block ) {
+		$block_name = isset( $block['blockName'] ) ? $block['blockName'] : '';
+
+		if ( 'core/query' !== $block_name ) {
+			return $block_content;
+		}
+
+		$class_name = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
+
+		if ( false === strpos( $class_name, 'nexafusion-featured-query' ) ) {
+			return $block_content;
+		}
+
+		$featured_posts = new WP_Query(
+			array(
+				'category_name'         => 'featured',
+				'fields'                => 'ids',
+				'no_found_rows'         => true,
+				'post_status'           => 'publish',
+				'post_type'             => 'post',
+				'posts_per_page'        => 1,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+			)
+		);
+		$has_featured_posts = $featured_posts->have_posts();
+
+		wp_reset_postdata();
+
+		return $has_featured_posts ? $block_content : '';
+	}
+endif;
+add_filter( 'render_block', 'nexafusion_render_featured_query_when_populated', 10, 2 );
 
 
 if ( ! function_exists( 'nexafusion_body_classes' ) ) :
