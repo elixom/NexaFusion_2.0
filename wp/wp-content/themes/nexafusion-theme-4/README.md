@@ -1,10 +1,11 @@
-# NexaFusion Digital Agency WordPress Theme
+=== NexaFusion Theme 4 ===
+# NexaFusion Digital Agency Old WordPress Theme
 
 A premium WordPress block theme featuring the "Caribbean Nocturne" design system - blending atmospheric innovation with high-tech precision.
 
 ## 📋 Theme Information
 
-- **Theme Name:** NexaFusion Digital Agency
+- **Theme Name:** NexaFusion Digital Agency 4
 - **Version:** 1.0.0
 - **Requires WordPress:** 6.2+
 - **Requires PHP:** 7.4+
