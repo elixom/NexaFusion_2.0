@@ -12,6 +12,61 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Remove SQL_CALC_FOUND_ROWS from post queries for database adapters that do not
+ * reliably support it. When unsupported, normal WP_Query calls can return empty
+ * post lists even though direct post table queries still find published content.
+ *
+ * @param string $sql SQL query string.
+ * @return string
+ */
+function nexafusion_remove_sql_calc_found_rows( $sql ) {
+	return str_replace( ' SQL_CALC_FOUND_ROWS ', ' ', $sql );
+}
+add_filter( 'posts_request', 'nexafusion_remove_sql_calc_found_rows', 1 );
+add_filter( 'posts_request_ids', 'nexafusion_remove_sql_calc_found_rows', 1 );
+
+/**
+ * Stores the generated post query clauses so pagination counts can be rebuilt
+ * after SQL_CALC_FOUND_ROWS is removed.
+ *
+ * @param array    $clauses Query SQL clauses.
+ * @param WP_Query $query   Query instance.
+ * @return array
+ */
+function nexafusion_store_found_rows_clauses( $clauses, $query ) {
+	$query->nexafusion_found_rows_clauses = $clauses;
+
+	return $clauses;
+}
+add_filter( 'posts_clauses', 'nexafusion_store_found_rows_clauses', 1, 2 );
+
+/**
+ * Replaces SELECT FOUND_ROWS() with an explicit COUNT query.
+ *
+ * @param string   $sql   Found posts SQL.
+ * @param WP_Query $query Query instance.
+ * @return string
+ */
+function nexafusion_explicit_found_rows_query( $sql, $query ) {
+	global $wpdb;
+
+	$clauses = isset( $query->nexafusion_found_rows_clauses ) ? $query->nexafusion_found_rows_clauses : array();
+
+	if ( empty( $clauses ) ) {
+		return $sql;
+	}
+
+	$distinct = ! empty( $clauses['distinct'] ) ? 'DISTINCT' : '';
+	$join     = isset( $clauses['join'] ) ? $clauses['join'] : '';
+	$where    = isset( $clauses['where'] ) ? $clauses['where'] : '';
+	$groupby  = isset( $clauses['groupby'] ) ? $clauses['groupby'] : '';
+	$count    = ( $distinct || $groupby ) ? "COUNT(DISTINCT {$wpdb->posts}.ID)" : 'COUNT(*)';
+
+	return "SELECT {$count} FROM {$wpdb->posts} {$join} WHERE 1=1 {$where}";
+}
+add_filter( 'found_posts_query', 'nexafusion_explicit_found_rows_query', 1, 2 );
+
+/**
  * Log diagnostic information about post queries.
  */
 function nexafusion_diagnose_post_query( $query ) {
