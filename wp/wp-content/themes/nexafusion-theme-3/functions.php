@@ -94,6 +94,10 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 			$slug = sanitize_title( (string) $slug );
 		}
 
+		print_r("==========fx nexafusion_category_query_by_slug==========");
+		print_r( $query );
+		print_r("==========block==========slug:{$slug}==========");
+		print_r( $block );
 		if ( '' === $slug ) {
 			return $query;
 		}
@@ -117,6 +121,9 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 		);
 
 		$query['tax_query'] = $tax_query;
+
+		print_r("==========FINAL fx nexafusion_category_query_by_slug==========");
+		print_r( $query );
 
 		return $query;
 	}
