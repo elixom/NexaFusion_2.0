@@ -75,6 +75,7 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 	function nexafusion_category_query_by_slug( $query, $block ) {
 		$attrs      = isset( $block->parsed_block['attrs'] ) ? $block->parsed_block['attrs'] : array();
 		$class_name = isset( $attrs['className'] ) ? $attrs['className'] : '';
+		$category  = isset( $query['category'] ) ? $query['category'] : array();
 		$query_map  = array(
 			'nexafusion-services-query'     => 'services',
 			'nexafusion-testimonials-query' => 'testimonials',
@@ -88,19 +89,34 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 			}
 		}
 
+		if ( '' === $slug && ! empty( $category ) ) {
+			$slug = is_array( $category ) ? reset( $category ) : $category;
+			$slug = sanitize_title( (string) $slug );
+		}
+
 		if ( '' === $slug ) {
 			return $query;
 		}
 
-		$category = get_category_by_slug( $slug );
+		$category_term = get_category_by_slug( $slug );
+		$tax_query     = isset( $query['tax_query'] ) && is_array( $query['tax_query'] ) ? $query['tax_query'] : array();
 
-		unset( $query['cat'], $query['category_name'], $query['category__in'] );
+		unset( $query['cat'], $query['category'], $query['category_name'], $query['category__in'] );
 
-		if ( $category ) {
-			$query['category__in'] = array( (int) $category->term_id );
-		} else {
-			$query['category_name'] = $slug;
+		foreach ( $tax_query as $key => $tax_clause ) {
+			if ( is_array( $tax_clause ) && isset( $tax_clause['taxonomy'] ) && 'category' === $tax_clause['taxonomy'] ) {
+				unset( $tax_query[ $key ] );
+			}
 		}
+
+		$tax_query[] = array(
+			'taxonomy'         => 'category',
+			'field'            => $category_term ? 'term_id' : 'slug',
+			'terms'            => array( $category_term ? (int) $category_term->term_id : $slug ),
+			'include_children' => false,
+		);
+
+		$query['tax_query'] = $tax_query;
 
 		return $query;
 	}
