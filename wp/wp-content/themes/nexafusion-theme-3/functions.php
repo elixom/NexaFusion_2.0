@@ -96,11 +96,11 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 
 		print_r("==========fx nexafusion_category_query_by_slug==========");
 		print_r( $query );
-		print_r("==========block==========slug:{$slug}==========");
-		print_r( $block->blockName  . "<<<");
+		print_r("==========block context==========slug:{$slug}==========");
+		print_r( $block->name  . "<<<");
 		print_r( $block->context );
-		global $wpdb;
-		/* $wpdb->insert(
+		/* global $wpdb;
+		$wpdb->insert(
 			'err1s',
 			array(
 				'error_text' => print_r( $block, true ),
