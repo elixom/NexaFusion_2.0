@@ -94,11 +94,12 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 			$slug = sanitize_title( (string) $slug );
 		}
 
-		print_r("==========fx nexafusion_category_query_by_slug==========");
+		print_r("==========fx nexafusion_category_query_by_slug===[{$category}]=[cn:{$class_name}]======");
 		print_r( $query );
 		print_r("==========block context==========slug:{$slug}==========");
 		print_r( $block->name  . "<<<");
 		print_r( $block->context );
+				print_r( $attrs );
 		/* global $wpdb;
 		$wpdb->insert(
 			'err1s',
