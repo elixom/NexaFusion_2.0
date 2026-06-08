@@ -60,40 +60,52 @@ endif;
 add_action( 'wp_enqueue_scripts', 'nexafusion_enqueue_assets' );
 
 
-if ( ! function_exists( 'nexafusion_services_query_by_slug' ) ) :
+if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 	/**
-	 * Keeps the Services template query portable across database imports.
+	 * Keeps category archive-style template queries portable across database imports.
 	 *
 	 * Query Loop category selections are stored as numeric term IDs in block markup.
-	 * Those IDs can change between WordPress installs, so the Services archive should
-	 * resolve the category by slug at render time instead.
+	 * Those IDs can change between WordPress installs, so custom category feeds should
+	 * resolve categories by slug at render time instead.
 	 *
 	 * @param array    $query Query arguments for WP_Query.
 	 * @param WP_Block $block Query Loop block instance.
 	 * @return array
 	 */
-	function nexafusion_services_query_by_slug( $query, $block ) {
+	function nexafusion_category_query_by_slug( $query, $block ) {
 		$attrs      = isset( $block->parsed_block['attrs'] ) ? $block->parsed_block['attrs'] : array();
 		$class_name = isset( $attrs['className'] ) ? $attrs['className'] : '';
+		$query_map  = array(
+			'nexafusion-services-query'     => 'services',
+			'nexafusion-testimonials-query' => 'testimonials',
+		);
+		$slug       = '';
 
-		if ( false === strpos( $class_name, 'nexafusion-services-query' ) ) {
+		foreach ( $query_map as $query_class => $category_slug ) {
+			if ( false !== strpos( $class_name, $query_class ) ) {
+				$slug = $category_slug;
+				break;
+			}
+		}
+
+		if ( '' === $slug ) {
 			return $query;
 		}
 
-		$services_category = get_category_by_slug( 'services' );
+		$category = get_category_by_slug( $slug );
 
 		unset( $query['cat'], $query['category_name'], $query['category__in'] );
 
-		if ( $services_category ) {
-			$query['category__in'] = array( (int) $services_category->term_id );
+		if ( $category ) {
+			$query['category__in'] = array( (int) $category->term_id );
 		} else {
-			$query['category_name'] = 'services';
+			$query['category_name'] = $slug;
 		}
 
 		return $query;
 	}
 endif;
-add_filter( 'query_loop_block_query_vars', 'nexafusion_services_query_by_slug', 10, 2 );
+add_filter( 'query_loop_block_query_vars', 'nexafusion_category_query_by_slug', 10, 2 );
 
 
 if ( ! function_exists( 'nexafusion_body_classes' ) ) :
