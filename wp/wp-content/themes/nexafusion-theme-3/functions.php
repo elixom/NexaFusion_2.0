@@ -75,7 +75,7 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 	function nexafusion_category_query_by_slug( $query, $block ) {
 		$attrs      = isset( $block->parsed_block['attrs'] ) ? $block->parsed_block['attrs'] : array();
 		$class_name = isset( $attrs['className'] ) ? $attrs['className'] : '';
-		$category  = isset( $attrs['query']['category'] ) ? $attrs['query']['category'] : array();
+		$category  = isset( $block->context['query']['category'] ) ? $block->context['query']['category'] : array();
 		$query_map  = array(
 			'nexafusion-services-query'     => 'services',
 			'nexafusion-testimonials-query' => 'testimonials',
@@ -98,7 +98,7 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 		print_r( $query );
 		print_r("==========block==========slug:{$slug}==========");
 		print_r( $block->blockName  . "<<<");
-		print_r( $block->query );
+		print_r( $block->context );
 		global $wpdb;
 		/* $wpdb->insert(
 			'err1s',
