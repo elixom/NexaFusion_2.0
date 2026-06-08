@@ -86,13 +86,13 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 			'31' => 'testimonials',
 		);
 		$slug       = '';
-
+/*
 		print_r("==========fx nexafusion_category_query_by_slug===[{$category}]=[cn:{$class_name}]======");
 		print_r( $query );
 		print_r("==========block context==========slug:{$slug}==========");
 		print_r( $block->name  . "<<<");
 		print_r( $block->context );
-				print_r( $attrs );
+				print_r( $attrs );*/
 		foreach ( $query_map as $query_class => $category_slug ) {
 			if ( false !== strpos( $class_name, $query_class ) ) {
 				$slug = $category_slug;
@@ -110,9 +110,10 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 			$slug = is_array( $category ) ? reset( $category ) : $category;
 			$slug = sanitize_title( (string) $slug );
 		}
+		/*
 		print_r( $category );
 		print_r("==========then slug:{$slug}==========");
-
+*/
 		/* global $wpdb;
 		$wpdb->insert(
 			'err1s',
@@ -171,10 +172,10 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 		);
 
 		$query['tax_query'] = $tax_query;
-
+/*
 		print_r("==========FINAL fx nexafusion_category_query_by_slug==========");
 		print_r( $query );
-
+*/
 		return $query;
 	}
 endif;
