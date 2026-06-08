@@ -97,7 +97,7 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 		print_r("==========fx nexafusion_category_query_by_slug==========");
 		print_r( $query );
 		print_r("==========block==========slug:{$slug}==========");
-		print_r( $block );
+		print_r( $block->query );
 		if ( '' === $slug ) {
 			return $query;
 		}
