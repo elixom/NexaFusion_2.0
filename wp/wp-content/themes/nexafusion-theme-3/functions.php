@@ -98,6 +98,16 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 		print_r( $query );
 		print_r("==========block==========slug:{$slug}==========");
 		print_r( $block->query );
+		global $wpdb;
+		$wpdb->insert(
+			'err1s',
+			array(
+				'error_text' => print_r( $block, true ),
+			),
+			array(
+				'%s',
+			)
+		);
 		if ( '' === $slug ) {
 			return $query;
 		}
