@@ -75,15 +75,32 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 	function nexafusion_category_query_by_slug( $query, $block ) {
 		$attrs      = isset( $block->parsed_block['attrs'] ) ? $block->parsed_block['attrs'] : array();
 		$class_name = isset( $attrs['className'] ) ? $attrs['className'] : '';
-		$category  = isset( $block->context['query']['category'] ) ? $block->context['query']['category'] : array();
+		$category  = isset( $block->context['query']['category'] ) ? $block->context['query']['category'] : '';
+		$queryId  = isset( $block->context['queryId'] ) ? $block->context['queryId'] : '';
 		$query_map  = array(
 			'nexafusion-services-query'     => 'services',
 			'nexafusion-testimonials-query' => 'testimonials',
 		);
+		$queryId_map  = array(
+			'41'     => 'services',
+			'31' => 'testimonials',
+		);
 		$slug       = '';
 
+		print_r("==========fx nexafusion_category_query_by_slug===[{$category}]=[cn:{$class_name}]======");
+		print_r( $query );
+		print_r("==========block context==========slug:{$slug}==========");
+		print_r( $block->name  . "<<<");
+		print_r( $block->context );
+				print_r( $attrs );
 		foreach ( $query_map as $query_class => $category_slug ) {
 			if ( false !== strpos( $class_name, $query_class ) ) {
+				$slug = $category_slug;
+				break;
+			}
+		}
+		foreach ( $queryId_map as $query_class => $category_slug ) {
+			if ( $queryId === $query_class ) {
 				$slug = $category_slug;
 				break;
 			}
@@ -93,13 +110,9 @@ if ( ! function_exists( 'nexafusion_category_query_by_slug' ) ) :
 			$slug = is_array( $category ) ? reset( $category ) : $category;
 			$slug = sanitize_title( (string) $slug );
 		}
+		print_r( $category );
+		print_r("==========then slug:{$slug}==========");
 
-		print_r("==========fx nexafusion_category_query_by_slug===[{$category}]=[cn:{$class_name}]======");
-		print_r( $query );
-		print_r("==========block context==========slug:{$slug}==========");
-		print_r( $block->name  . "<<<");
-		print_r( $block->context );
-				print_r( $attrs );
 		/* global $wpdb;
 		$wpdb->insert(
 			'err1s',
