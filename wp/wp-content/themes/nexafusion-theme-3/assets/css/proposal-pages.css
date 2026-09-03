@@ -1,0 +1,119 @@
+﻿.nf-site-header {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--shadow-ambient);
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.nf-header-shell {
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 1rem 1.5rem;
+    width: 100%;
+}
+
+.nf-brand { gap: 0.75rem; }
+
+.nf-primary-nav {
+    color: var(--on-primary-container);
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: var(--tracking-tight);
+}
+
+.nf-button-primary .wp-block-button__link {
+    background: var(--gradient-primary);
+    border: 0;
+    border-radius: var(--radius-default);
+    color: var(--on-primary);
+    font-weight: 800;
+}
+.nf-page-main { padding-top: 6.5rem; }
+
+.nf-section {
+    background: var(--surface-container-low);
+    padding: 4rem 1.5rem;
+}
+
+.nf-section-alt {
+    background: var(--surface-container);
+}
+
+.nf-hero-section {
+    background:
+        radial-gradient(circle at 10% 15%, rgba(125, 152, 255, 0.22), transparent 28rem),
+        radial-gradient(circle at 88% 10%, rgba(221, 183, 255, 0.18), transparent 24rem),
+        linear-gradient(rgba(7, 13, 31, 0.65), rgba(7, 13, 31, 0.65)),
+        linear-gradient(135deg, var(--surface-container-low), var(--surface));
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+}
+
+.nf-container {
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+.nf-label {
+    color: var(--on-surface-variant);
+    letter-spacing: var(--tracking-expanded);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.nf-card-grid { gap: 1.25rem; }
+
+.nf-card {
+    background: var(--surface-container-high);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-ambient);
+    padding: 2rem;
+}
+
+.nf-price {
+    color: var(--primary);
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: var(--tracking-tight);
+    margin-bottom: 0.75rem;
+}
+
+.nf-site-footer {
+    background: var(--surface-container-highest);
+    padding: 4rem 1.5rem 2.5rem;
+}
+
+.nf-footer-grid {
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.nf-footer-nav {
+    color: var(--on-surface-variant);
+    gap: 0.5rem;
+}
+
+.nf-footer-copy {
+    color: var(--on-surface-variant);
+    margin: 0;
+    opacity: 0.85;
+}
+@media (max-width: 782px) {
+    .nf-page-main {
+        padding-top: 8rem;
+    }
+
+    .nf-section {
+        padding-bottom: 3rem;
+        padding-top: 3rem;
+    }
+
+    .nf-header-shell {
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
+

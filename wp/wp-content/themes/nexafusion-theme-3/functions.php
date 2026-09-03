@@ -55,6 +55,14 @@ if ( ! function_exists( 'nexafusion_enqueue_assets' ) ) :
 			array(),
 			wp_get_theme()->get( 'Version' )
 		);
+
+
+		wp_enqueue_style(
+			'nexafusion-proposal-pages',
+			get_theme_file_uri( 'assets/css/proposal-pages.css' ),
+			array( 'nexafusion-style' ),
+			wp_get_theme()->get( 'Version' )
+		);
 	}
 endif;
 add_action( 'wp_enqueue_scripts', 'nexafusion_enqueue_assets' );
