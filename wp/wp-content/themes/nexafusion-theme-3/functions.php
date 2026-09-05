@@ -236,6 +236,60 @@ endif;
 add_filter( 'render_block', 'nexafusion_render_featured_query_when_populated', 10, 2 );
 
 
+
+
+if ( ! function_exists( 'nexafusion_ensure_core_pages' ) ) :
+	/**
+	 * Ensures core proposal pages exist for theme navigation.
+	 *
+	 * @return void
+	 */
+	function nexafusion_ensure_core_pages() {
+		if ( get_option( 'nexafusion_core_pages_seeded', false ) ) {
+			return;
+		}
+
+		$required_pages = array(
+			'about'           => __( 'About', 'nexafusion' ),
+			'services'        => __( 'Services', 'nexafusion' ),
+			'creator-network' => __( 'Creator Network', 'nexafusion' ),
+			'pricing'         => __( 'Pricing', 'nexafusion' ),
+			'contact'         => __( 'Contact', 'nexafusion' ),
+		);
+
+		$created_any = false;
+
+		foreach ( $required_pages as $slug => $title ) {
+			$existing_page = get_page_by_path( $slug, OBJECT, 'page' );
+
+			if ( $existing_page instanceof WP_Post ) {
+				continue;
+			}
+
+			$page_id = wp_insert_post(
+				array(
+					'post_title'   => $title,
+					'post_name'    => $slug,
+					'post_type'    => 'page',
+					'post_status'  => 'publish',
+					'post_content' => '',
+				),
+				true
+			);
+
+			if ( ! is_wp_error( $page_id ) ) {
+				$created_any = true;
+			}
+		}
+
+		if ( $created_any || ! empty( $required_pages ) ) {
+			update_option( 'nexafusion_core_pages_seeded', 1, false );
+		}
+	}
+endif;
+add_action( 'init', 'nexafusion_ensure_core_pages' );
+
+
 if ( ! function_exists( 'nexafusion_body_classes' ) ) :
 	/**
 	 * Adds theme-specific body classes.

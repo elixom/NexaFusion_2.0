@@ -117,3 +117,34 @@
     }
 }
 
+
+
+.nf-primary-nav .wp-block-page-list,
+.nf-footer-nav {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+.nf-primary-nav .wp-block-page-list {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.nf-primary-nav .wp-block-pages-list__item__link,
+.nf-footer-nav .wp-block-pages-list__item__link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nf-primary-nav .wp-block-pages-list__item__link:hover,
+.nf-footer-nav .wp-block-pages-list__item__link:hover {
+    color: var(--tertiary);
+}
+
+.nf-footer-nav {
+    display: grid;
+    gap: 0.5rem;
+}
